@@ -1,10 +1,13 @@
-name: Build and Deploy to gh-pages branch
+name: Code Checks
 on:
   push:
     branches:
-      - 'main'
+      - '*'
+  pull_request:
+    branches:
+      - '*'
 jobs:
-  build-and-deploy:
+  run-linters:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,11 +45,14 @@ jobs:
       - name: Install Node modules
         run: pnpm i
 
-      - name: Build
-        run: npm run build
+      - name: Run linters
+        run: pnpm run lint
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build # The folder the action should deploy.
-          token: ${{ secrets.GH_PAGES_AUTH_TOKEN }}
+      - name: Run Svelte Check
+        run: pnpm run check
+
+      - name: Run unit tests
+        run: pnpm run test:unit
+
+      - name: Run tests
+        run: npx playwright install && pnpm run test
