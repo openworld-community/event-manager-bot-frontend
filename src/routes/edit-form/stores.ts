@@ -41,11 +41,11 @@ export const currencyStore = createStore('USD').on(changeCurrency, handleInputCh
 
 export const submitForm = createEvent();
 
-export const makeInputEventProxy =
+export const createInputEventHandler =
   (handler: EffectorEvent<EventType>): FormEventHandler<HTMLInputElement> =>
   (event) =>
     handler((event.target as HTMLInputElement).value);
-export const makeFormEventProxy =
+export const createFormEventHandler =
   (handler: EffectorEvent<void>): FormEventHandler<HTMLFormElement> =>
   () =>
     handler();
