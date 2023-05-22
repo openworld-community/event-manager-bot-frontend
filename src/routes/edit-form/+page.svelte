@@ -1,103 +1,15 @@
-<script>
-  import {
-    changeName,
-    changeLink,
-    changeStart,
-    changeRemind,
-    changeMaxAdults,
-    changeMaxChildren,
-    changeMaxAdultsPerReservation,
-    changeMaxChildrenPerReservation,
-    changeAdultTicketPrice,
-    changeChildrenTicketPrice,
-    changeCurrency,
-    nameStore,
-    linkStore,
-    startStore,
-    remindStore,
-    maxAdultsStore,
-    maxChildrenStore,
-    maxAdultsPerReservationStore,
-    maxChildrenPerReservationStore,
-    adultTicketPriceStore,
-    childrenTicketPriceStore,
-    currencyStore,
-    submitForm,
-    createInputEventHandler,
-    createFormEventHandler
-  } from './stores';
+<script lang="ts">
+  import {submitForm, createFormEventHandler, formDataStores} from './stores';
+  import Input from "$lib/Input.svelte";
 </script>
 
 <main>
   <form class="form" on:submit={createFormEventHandler(submitForm)}>
     <h1>Create new event</h1>
 
-    <label>
-      <span>Name:</span>
-      <input type="text" on:input={createInputEventHandler(changeName)} value={$nameStore}/>
-    </label>
-
-    <label>
-      <span>Link:</span>
-      <input type="text" on:input={createInputEventHandler(changeLink)} value={$linkStore}/>
-    </label>
-
-    <label>
-      <span>Start date:</span>
-      <input type="date" on:input={createInputEventHandler(changeStart)} value={$startStore}/>
-    </label>
-
-    <label>
-      <span>Remind date:</span>
-      <input type="date" on:input={createInputEventHandler(changeRemind)} value={$remindStore}/>
-    </label>
-
-    <label>
-      <span>Max adults amount:</span>
-      <input type="number" on:input={createInputEventHandler(changeMaxAdults)} value={$maxAdultsStore}/>
-    </label>
-
-    <label>
-      <span>Max children amount:</span>
-      <input type="number" on:input={createInputEventHandler(changeMaxChildren)} value={$maxChildrenStore}/>
-    </label>
-
-    <label>
-      <span>Max adults per reservation:</span>
-      <input
-        type="number"
-        on:input={createInputEventHandler(changeMaxAdultsPerReservation)}
-        value={$maxAdultsPerReservationStore}
-      />
-    </label>
-
-    <label>
-      <span>Max children per reservation:</span>
-      <input
-        type="number"
-        on:input={createInputEventHandler(changeMaxChildrenPerReservation)}
-        value={$maxChildrenPerReservationStore}
-      />
-    </label>
-
-    <label>
-      <span>Adult ticket price:</span>
-      <input type="number" on:input={createInputEventHandler(changeAdultTicketPrice)} value={$adultTicketPriceStore}/>
-    </label>
-
-    <label>
-      <span>Children ticket price:</span>
-      <input
-        type="number"
-        on:input={createInputEventHandler(changeChildrenTicketPrice)}
-        value={$childrenTicketPriceStore}
-      />
-    </label>
-
-    <label>
-      <span>Currency:</span>
-      <input type="text" on:input={createInputEventHandler(changeCurrency)} value={$currencyStore}/>
-    </label>
+    {#each formDataStores as input}
+      <Input label={input.label} type={input.type} handler={input.handler} valueStore={input.valueStore}/>
+    {/each}
 
     <button type="submit">Create event</button>
   </form>
