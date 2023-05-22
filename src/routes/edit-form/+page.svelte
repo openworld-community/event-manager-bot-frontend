@@ -22,67 +22,81 @@
     adultTicketPriceStore,
     childrenTicketPriceStore,
     currencyStore,
-    submitForm
+    submitForm,
+    makeInputEventProxy,
+    makeFormEventProxy
   } from './stores';
 </script>
 
 <main>
-  <form on:submit={submitForm}>
+  <form class="form" on:submit={makeFormEventProxy(submitForm)}>
     <h1>Create new event</h1>
 
-    <label class="input_block">
+    <label>
       <span>Name:</span>
-      <input type="text" on:input={changeName} value={$nameStore} />
+      <input type="text" on:input={makeInputEventProxy(changeName)} value={$nameStore}/>
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Link:</span>
-      <input type="text" on:input={changeLink} value={$linkStore} />
+      <input type="text" on:input={makeInputEventProxy(changeLink)} value={$linkStore}/>
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Start date:</span>
-      <input type="date" on:input={changeStart} value={$startStore} />
+      <input type="date" on:input={makeInputEventProxy(changeStart)} value={$startStore}/>
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Remind date:</span>
-      <input type="date" on:input={changeRemind} value={$remindStore} />
+      <input type="date" on:input={makeInputEventProxy(changeRemind)} value={$remindStore}/>
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Max adults amount:</span>
-      <input type="number" on:input={changeMaxAdults} value={$maxAdultsStore} />
+      <input type="number" on:input={makeInputEventProxy(changeMaxAdults)} value={$maxAdultsStore}/>
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Max children amount:</span>
-      <input type="number" on:input={changeMaxChildren} value={$maxChildrenStore} />
+      <input type="number" on:input={makeInputEventProxy(changeMaxChildren)} value={$maxChildrenStore}/>
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Max adults per reservation:</span>
-      <input type="number" on:input={changeMaxAdultsPerReservation} value={$maxAdultsPerReservationStore} />
+      <input
+        type="number"
+        on:input={makeInputEventProxy(changeMaxAdultsPerReservation)}
+        value={$maxAdultsPerReservationStore}
+      />
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Max children per reservation:</span>
-      <input type="number" on:input={changeMaxChildrenPerReservation} value={$maxChildrenPerReservationStore} />
+      <input
+        type="number"
+        on:input={makeInputEventProxy(changeMaxChildrenPerReservation)}
+        value={$maxChildrenPerReservationStore}
+      />
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Adult ticket price:</span>
-      <input type="number" on:input={changeAdultTicketPrice} value={$adultTicketPriceStore} />
+      <input type="number" on:input={makeInputEventProxy(changeAdultTicketPrice)} value={$adultTicketPriceStore}/>
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Children ticket price:</span>
-      <input type="number" on:input={changeChildrenTicketPrice} value={$childrenTicketPriceStore} />
+      <input
+        type="number"
+        on:input={makeInputEventProxy(changeChildrenTicketPrice)}
+        value={$childrenTicketPriceStore}
+      />
     </label>
 
-    <label class="input_block">
+    <label>
       <span>Currency:</span>
-      <input type="text" on:input={changeCurrency} value={$currencyStore} />
+      <input type="text" on:input={makeInputEventProxy(changeCurrency)} value={$currencyStore}/>
     </label>
 
     <button type="submit">Create event</button>
@@ -90,7 +104,9 @@
 </main>
 
 <style>
-  .input_block {
-    display: block;
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 </style>

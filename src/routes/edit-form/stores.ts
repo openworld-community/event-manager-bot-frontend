@@ -1,38 +1,51 @@
 import { createEvent, createStore } from 'effector';
+import type { Event as EffectorEvent } from 'effector';
+import type { FormEventHandler } from 'svelte/elements';
 
-const handleInputChange = (_, event: InputEvent) => (event.target as HTMLInputElement).value;
+type EventType = string;
 
-export const changeName = createEvent<InputEvent>();
+const handleInputChange = (_: unknown, value: EventType) => value;
+
+export const changeName = createEvent<EventType>();
 export const nameStore = createStore('').on(changeName, handleInputChange);
 
-export const changeLink = createEvent<InputEvent>();
+export const changeLink = createEvent<EventType>();
 export const linkStore = createStore('').on(changeLink, handleInputChange);
 
-export const changeStart = createEvent<InputEvent>();
+export const changeStart = createEvent<EventType>();
 export const startStore = createStore('').on(changeStart, handleInputChange);
 
-export const changeRemind = createEvent<InputEvent>();
+export const changeRemind = createEvent<EventType>();
 export const remindStore = createStore('').on(changeRemind, handleInputChange);
 
-export const changeMaxAdults = createEvent<InputEvent>();
-export const maxAdultsStore = createStore('').on(changeMaxAdults, handleInputChange);
+export const changeMaxAdults = createEvent<EventType>();
+export const maxAdultsStore = createStore('100').on(changeMaxAdults, handleInputChange);
 
-export const changeMaxChildren = createEvent<InputEvent>();
-export const maxChildrenStore = createStore('').on(changeMaxChildren, handleInputChange);
+export const changeMaxChildren = createEvent<EventType>();
+export const maxChildrenStore = createStore('100').on(changeMaxChildren, handleInputChange);
 
-export const changeMaxAdultsPerReservation = createEvent<InputEvent>();
-export const maxAdultsPerReservationStore = createStore('').on(changeMaxAdultsPerReservation, handleInputChange);
+export const changeMaxAdultsPerReservation = createEvent<EventType>();
+export const maxAdultsPerReservationStore = createStore('4').on(changeMaxAdultsPerReservation, handleInputChange);
 
-export const changeMaxChildrenPerReservation = createEvent<InputEvent>();
-export const maxChildrenPerReservationStore = createStore('').on(changeMaxChildrenPerReservation, handleInputChange);
+export const changeMaxChildrenPerReservation = createEvent<EventType>();
+export const maxChildrenPerReservationStore = createStore('4').on(changeMaxChildrenPerReservation, handleInputChange);
 
-export const changeAdultTicketPrice = createEvent<InputEvent>();
-export const adultTicketPriceStore = createStore('').on(changeAdultTicketPrice, handleInputChange);
+export const changeAdultTicketPrice = createEvent<EventType>();
+export const adultTicketPriceStore = createStore('100').on(changeAdultTicketPrice, handleInputChange);
 
-export const changeChildrenTicketPrice = createEvent<InputEvent>();
-export const childrenTicketPriceStore = createStore('').on(changeChildrenTicketPrice, handleInputChange);
+export const changeChildrenTicketPrice = createEvent<EventType>();
+export const childrenTicketPriceStore = createStore('50').on(changeChildrenTicketPrice, handleInputChange);
 
-export const changeCurrency = createEvent<InputEvent>();
+export const changeCurrency = createEvent<EventType>();
 export const currencyStore = createStore('USD').on(changeCurrency, handleInputChange);
 
-export const submitForm = createEvent<SubmitEvent>();
+export const submitForm = createEvent();
+
+export const makeInputEventProxy =
+  (handler: EffectorEvent<EventType>): FormEventHandler<HTMLInputElement> =>
+  (event) =>
+    handler((event.target as HTMLInputElement).value);
+export const makeFormEventProxy =
+  (handler: EffectorEvent<void>): FormEventHandler<HTMLFormElement> =>
+  () =>
+    handler();
