@@ -45,6 +45,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.0.1
     version: 3.3.2(postcss@8.4.23)(svelte@3.59.1)
+  telegram-webapps:
+    specifier: ^0.0.4
+    version: 0.0.4
   tslib:
     specifier: ^2.4.1
     version: 2.5.2
@@ -1773,6 +1776,10 @@ packages:
   /svelte@3.59.1:
     resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /telegram-webapps@0.0.4:
+    resolution: {integrity: sha512-ttKavgnoHDhWXpFVIbiJTCI+jO2dUeoXTj8VfowcPqBVjrxsZiGb8bcT6jpSEhUVRq6l0h/z5PsT9QZdvI1EPg==}
     dev: true
 
   /text-table@0.2.0:
