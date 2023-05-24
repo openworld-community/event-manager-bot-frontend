@@ -1,7 +1,10 @@
 <script lang="ts">
   import {submitForm, createFormEventHandler, formDataStores} from './stores';
   import Input from "$lib/Input.svelte";
+  import TelegramScript from "$lib/TelegramScript.svelte";
 </script>
+
+<TelegramScript />
 
 <main>
   <form class="form" on:submit={createFormEventHandler(submitForm)}>
