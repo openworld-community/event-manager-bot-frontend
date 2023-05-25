@@ -7,7 +7,7 @@ type InputData = {
   type: HTMLInputTypeAttribute;
 };
 
-export const formData: InputData[] = [
+export const editFormData: InputData[] = [
   {
     label: 'Name',
     systemName: 'name',

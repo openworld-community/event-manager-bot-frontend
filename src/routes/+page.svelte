@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { userFirstNameStore, userIDStore, userLastNameStore } from "./logic";
-  import TelegramScript from "$lib/TelegramScript.svelte";
+  import { userFirstNameStore, userIDStore, userLastNameStore } from "$lib/logic/main-page";
+  import TelegramScript from "$lib/components/TelegramScript.svelte";
 </script>
 
 <TelegramScript />
