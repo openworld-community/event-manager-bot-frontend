@@ -1,7 +1,7 @@
 import { createEffect, createEvent, createStore, sample } from 'effector';
 import type { Event as EffectorEvent } from 'effector';
 import type { FormEventHandler } from 'svelte/elements';
-import { formData } from './formData';
+import { editFormData } from './edit-form-data';
 
 type FormInputEventType = string;
 type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
@@ -17,7 +17,7 @@ export const createFormEventHandler =
   (data) =>
     handler(data.currentTarget);
 
-export const formDataStores = formData.map((item) => {
+export const formDataStores = editFormData.map((item) => {
   const event = createEvent<FormInputEventType>();
   const store = createStore(item.initValue).on(event, handleInputChange);
 
@@ -32,7 +32,7 @@ const submitFormFx = createEffect(async (data: Record<string, string>) => {
 const formMapper = (storesData: string[]) => {
   const data: Record<string, string> = {};
   for (let i = 0; i < storesData.length; i++) {
-    data[formData[i].systemName] = storesData[i];
+    data[editFormData[i].systemName] = storesData[i];
   }
   return data;
 };

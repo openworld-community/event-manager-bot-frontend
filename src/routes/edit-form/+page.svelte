@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {submitForm, createFormEventHandler, formDataStores} from './logic';
-  import Input from "$lib/Input.svelte";
-  import TelegramScript from "$lib/TelegramScript.svelte";
+  import {submitForm, createFormEventHandler, formDataStores} from '$lib/logic/edit-form';
+  import Input from "$lib/components/Input.svelte";
+  import TelegramScript from "$lib/components/TelegramScript.svelte";
 </script>
 
 <TelegramScript />

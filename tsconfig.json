@@ -9,7 +9,11 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "typeRoots": ["./node_modules/telegram-webapps"]
+    "typeRoots": ["./node_modules/telegram-webapps"],
+    "paths": {
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
+    }
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   //
