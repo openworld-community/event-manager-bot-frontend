@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {submitForm, createFormEventHandler, formDataStores} from '$lib/logic/edit-form';
+  import { submitForm, createFormEventHandler, formDataStores } from "$lib/logic/editForm";
   import Input from "$lib/components/Input.svelte";
   import TelegramScript from "$lib/components/TelegramScript.svelte";
 </script>
@@ -10,8 +10,9 @@
   <form class="form" on:submit={createFormEventHandler(submitForm)}>
     <h1>Create new event</h1>
 
-    {#each formDataStores as input}
-      <Input label={input.label} type={input.type} handler={input.handler} valueStore={input.valueStore}/>
+    {#each formDataStores as inputData}
+      <Input label={inputData.label} type={inputData.type} handler={inputData.handler}
+             valueStore={inputData.valueStore} />
     {/each}
 
     <button type="submit">Create event</button>

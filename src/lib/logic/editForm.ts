@@ -1,7 +1,7 @@
 import { createEffect, createEvent, createStore, sample } from 'effector';
 import type { Event as EffectorEvent } from 'effector';
 import type { FormEventHandler } from 'svelte/elements';
-import { editFormData } from './edit-form-data';
+import { editFormData } from './editFormData';
 
 type FormInputEventType = string;
 type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
