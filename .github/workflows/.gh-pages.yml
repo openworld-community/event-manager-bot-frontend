@@ -1,8 +1,7 @@
 name: Build and Deploy to gh-pages branch
 on:
   push:
-    branches:
-      - 'main'
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -42,11 +41,54 @@ jobs:
       - name: Install Node modules
         run: pnpm i
 
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.61.0
+        id: version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
+          PRERELEASE: ${{ github.ref_name == 'prerelease' }}
+        if: github.ref_name == 'main' || github.ref_name == 'prerelease'
+
+      - name: Replace version in package.json
+        run: sed -i s/"^version .*$"/"version = \"$(echo ${{ steps.version.outputs.new_tag }} | sed s/v//g)\""/g package.json
+        if: github.ref_name == 'main' || github.ref_name == 'prerelease'
+
       - name: Build
         run: npm run build
+
+      - name: Create archive for release
+        run: tar -czvf event-manager-telegram-bot-front.tar.gz build
+        if: github.ref_name == 'main' || github.ref_name == 'prerelease'
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_SECRET }}
+        with:
+          tag_name: ${{ steps.version.outputs.new_tag }}
+          release_name: Release ${{ steps.version.outputs.new_tag }}
+          draft: false
+          prerelease: ${{ github.ref_name == 'prerelease' }}
+        if: github.ref_name == 'main' || github.ref_name == 'prerelease'
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        id: upload_release_asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./event-manager-telegram-bot-front.tar.gz
+          asset_name: event-manager-telegram-bot-front
+          asset_content_type: application/octet-stream
+        if: github.ref_name == 'main' || github.ref_name == 'prerelease'
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build # The folder the action should deploy.
           token: ${{ secrets.GH_PAGES_AUTH_TOKEN }}
+        if: github.ref_name != 'main' && github.ref_name != 'prerelease'
