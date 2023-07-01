@@ -79,7 +79,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         id: upload_release_asset
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_SECRET }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./event-manager-telegram-bot-front.tar.gz
