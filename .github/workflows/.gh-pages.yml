@@ -49,6 +49,7 @@ jobs:
           WITH_V: true
           DEFAULT_BUMP: patch
           PRERELEASE: ${{ github.ref_name == 'prerelease' }}
+          DRY_RUN: true
         if: github.ref_name == 'main' || github.ref_name == 'prerelease'
 
       - name: Replace version in package.json
