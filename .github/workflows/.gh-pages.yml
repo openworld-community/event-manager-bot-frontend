@@ -98,6 +98,11 @@ jobs:
           -d '{"event_type":"frontend_deploy","client_payload":{"env":"${{ github.ref_name }}"}}'
         if: github.ref_name == 'main' || github.ref_name == 'prerelease'
 
+      - name: Debug
+        run: |
+          echo "GITHUB_REF: ${{ github.ref }}"
+          echo "GITHUB_REF_NAME: ${{ github.ref_name }}"
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
