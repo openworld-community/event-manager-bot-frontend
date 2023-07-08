@@ -6,6 +6,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions: write-all
+    environment: ${{ github.ref_name }}
 
     steps:
       - name: Checkout

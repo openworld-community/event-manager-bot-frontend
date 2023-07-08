@@ -2,6 +2,7 @@
   import { submitForm, createFormEventHandler, formDataStores } from "$lib/logic/editForm";
   import Input from "$lib/components/Input.svelte";
   import TelegramScript from "$lib/components/TelegramScript.svelte";
+  import { sendDataToServer } from '$lib/logic/api';
 </script>
 
 <TelegramScript />
@@ -15,7 +16,7 @@
              valueStore={inputData.valueStore} />
     {/each}
 
-    <button type="submit">Create event</button>
+    <button type="submit" on:click|preventDefault={() => sendDataToServer($formData)}>Create event</button>
   </form>
 </main>
 
