@@ -1,4 +1,5 @@
 import type { HTMLInputTypeAttribute } from 'svelte/elements';
+import timezones from 'countries-and-timezones';
 
 type InputData = {
   label: string;
@@ -24,14 +25,14 @@ export const editFormData: InputData[] = [
   {
     label: 'Start date',
     systemName: 'start',
-    initValue: '',
-    type: 'date'
+    initValue: 'now+12h',
+    type: 'datetime-local'
   },
   {
     label: 'Remind date',
     systemName: 'remind',
-    initValue: '',
-    type: 'date'
+    initValue: 'now+1d',
+    type: 'datetime-local'
   },
   {
     label: 'Max adults amount',
@@ -74,5 +75,11 @@ export const editFormData: InputData[] = [
     systemName: 'currency',
     initValue: 'USD',
     type: 'text'
+  },
+ {
+    label: 'Time Zone',
+    systemName: 'timeZone',
+    initValue: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    type: 'select'
   }
 ];

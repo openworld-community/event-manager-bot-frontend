@@ -1,10 +1,9 @@
 import { createEffect, createEvent, createStore, sample } from 'effector';
 import type { Event as EffectorEvent } from 'effector';
 import type { FormEventHandler } from 'svelte/elements';
-import axios from 'axios';
 import { editFormData } from './editFormData';
 
-type FormInputEventType = string;
+type FormInputEventType = string | number;
 type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
 
 const handleInputChange = (_: unknown, value: FormInputEventType) => value;
@@ -27,22 +26,32 @@ export const formDataStores = editFormData.map((item) => {
 
 export const submitForm = createEvent<HTMLFormElement>();
 
-const submitFormFx = createEffect(async (data: Record<string, string>) => {
-  try {
-    const apiServer = import.meta.env.VITE_API_SERVER;
-    const apiPort = import.meta.env.VITE_API_PORT;
-    const response = await axios.post(`${apiServer}:${apiPort}/event`, data);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    return error;
-  }
+const submitFormFx = createEffect(async (data: Record<string, string | number>) => {
+  const timeZone = data['timeZone'] as string;
+  const adjustedData = { ...data };
+
+  const dateFields = ['start', 'remind'];
+  dateFields.forEach((field) => {
+    const date = new Date(data[field]);
+    const zonedDate = new Date(date.toLocaleString("en-US", { timeZone }));
+    adjustedData[field] = zonedDate.toISOString();
+  });
+
+  delete adjustedData['timeZone'];
+
+  await fetch('https://test.eventmanagerbot.peredelano.io:8443/event', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(adjustedData)
+  });
 });
 
-const formMapper = (storesData: string[]) => {
-  const data: Record<string, string> = {};
+const formMapper = (storesData: (string | number)[], stores: typeof formDataStores) => {
+  const data: Record<string, string | number> = {};
   for (let i = 0; i < storesData.length; i++) {
-    data[editFormData[i].systemName] = storesData[i];
+    data[stores[i].systemName] = storesData[i];
   }
   return data;
 };
