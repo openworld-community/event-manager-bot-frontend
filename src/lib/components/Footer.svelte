@@ -9,5 +9,5 @@
 </script>
 
 <footer>
-  Frontend Version: '{version}'
+  Frontend Version: 'version'
 </footer>

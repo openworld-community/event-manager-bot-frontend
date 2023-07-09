@@ -24,13 +24,13 @@ export const editFormData: InputData[] = [
   {
     label: 'Start date',
     systemName: 'start',
-    initValue: '',
+    initValue: 'now+12h',
     type: 'datetime-local'
   },
   {
     label: 'Remind date',
     systemName: 'remind',
-    initValue: '',
+    initValue: 'now+1d',
     type: 'datetime-local'
   },
   {
