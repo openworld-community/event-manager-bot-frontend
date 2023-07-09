@@ -1,4 +1,5 @@
 import type { HTMLInputTypeAttribute } from 'svelte/elements';
+import timezones from 'countries-and-timezones';
 
 type InputData = {
   label: string;
@@ -74,5 +75,11 @@ export const editFormData: InputData[] = [
     systemName: 'currency',
     initValue: 'USD',
     type: 'text'
+  },
+  {
+    label: 'Time Zone',
+    systemName: 'timezone',
+    initValue: '',
+    type: 'select'
   }
 ];

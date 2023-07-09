@@ -8,9 +8,15 @@ dependencies:
   axios:
     specifier: ^1.4.0
     version: 1.4.0
+  countries-and-timezones:
+    specifier: ^3.5.1
+    version: 3.5.1
   effector:
     specifier: ^22.8.6
     version: 22.8.6
+  luxon:
+    specifier: ^3.3.0
+    version: 3.3.0
 
 devDependencies:
   '@playwright/test':
@@ -786,6 +792,11 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
+  /countries-and-timezones@3.5.1:
+    resolution: {integrity: sha512-DlsW+qxiJI6HJ83Yjjmuokgul3KKs0BmraPigFZ1sjWHPZcOTJ0LwB5iewZT9wsMAbmgGSVUdY4nZ4JnHD6NBQ==}
+    engines: {node: '>=8.x', npm: '>=5.x'}
+    dev: false
+
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -1339,6 +1350,11 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /luxon@3.3.0:
+    resolution: {integrity: sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==}
+    engines: {node: '>=12'}
+    dev: false
 
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
