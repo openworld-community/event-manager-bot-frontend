@@ -37,7 +37,7 @@ const submitFormFx = createEffect(async (data: Record<string, string>) => {
     console.error(error);
     return error;
   }
-;
+});
 
 const formMapper = (storesData: string[]) => {
   const data: Record<string, string> = {};
