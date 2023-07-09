@@ -28,6 +28,8 @@ export const formDataStores = editFormData.map((item) => {
 export const submitForm = createEvent<HTMLFormElement>();
 
 const submitFormFx = createEffect(async (data: Record<string, string>) => {
+  const apiServer = import.meta.env.VITE_API_SERVER;
+  const apiPort = import.meta.env.VITE_API_PORT;
   const response = await axios.post(`${apiServer}:${apiPort}/event`, data);
   return response.data;
 });
