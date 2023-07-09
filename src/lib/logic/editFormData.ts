@@ -25,13 +25,13 @@ export const editFormData: InputData[] = [
     label: 'Start date',
     systemName: 'start',
     initValue: '',
-    type: 'date'
+    type: 'datetime-local'
   },
   {
     label: 'Remind date',
     systemName: 'remind',
     initValue: '',
-    type: 'date'
+    type: 'datetime-local'
   },
   {
     label: 'Max adults amount',
