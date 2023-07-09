@@ -36,7 +36,7 @@ export const formDataStores = editFormData.map((item) => {
     return {
       ...item,
       handler: createTimeZoneEventHandler(timeZoneEvent),
-      valueStore: timeZoneStore,
+      valueStore: timeZoneStore
     };
   }
 
