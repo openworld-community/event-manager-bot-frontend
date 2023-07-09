@@ -1,10 +1,9 @@
 import { createEffect, createEvent, createStore, sample } from 'effector';
 import type { Event as EffectorEvent } from 'effector';
 import type { FormEventHandler } from 'svelte/elements';
-import axios from 'axios';
 import { editFormData } from './editFormData';
 
-type FormInputEventType = string;
+type FormInputEventType = string | number;
 type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
 
 const handleInputChange = (_: unknown, value: FormInputEventType) => value;
@@ -18,49 +17,45 @@ export const createFormEventHandler =
   (data) =>
     handler(data.currentTarget);
 
-// Создаем новую функцию для обработки события выбора часового пояса
-export const createTimeZoneEventHandler =
-  (handler: EffectorEvent<FormInputEventType>): FormEventHandler<HTMLSelectElement> =>
-  (event) => {
-    if (event.target) {
-      handler(event.target.value);
-    }
-  };
-
-// Обновляем formDataStores, чтобы включить новое поле выбора часового пояса
 export const formDataStores = editFormData.map((item) => {
   const event = createEvent<FormInputEventType>();
   const store = createStore(item.initValue).on(event, handleInputChange);
 
-  // Добавляем обработчик для поля выбора часового пояса
-  if (item.type === 'select') {
-    const timeZoneEvent = createEvent<FormInputEventType>();
-    const timeZoneStore = createStore('').on(timeZoneEvent, handleInputChange);
-    return {
-      ...item,
-      handler: createTimeZoneEventHandler(timeZoneEvent),
-      valueStore: timeZoneStore
-    };
-  }
-
   return { ...item, handler: createInputEventHandler(event), valueStore: store };
 });
 
-// Обновляем formMapper, чтобы включить новое поле выбора часового пояса
-const formMapper = (storesData: string[]) => {
-  const data: Record<string, string> = {};
+export const submitForm = createEvent<HTMLFormElement>();
+
+const submitFormFx = createEffect(async (data: Record<string, string | number>) => {
+  const timeZone = data['timeZone'] as string;
+  const adjustedData = { ...data };
+
+  const dateFields = ['start', 'remind'];
+  dateFields.forEach((field) => {
+    const date = new Date(data[field]);
+    const zonedDate = new Date(date.toLocaleString("en-US", { timeZone }));
+    adjustedData[field] = zonedDate.toISOString();
+  });
+
+  delete adjustedData['timeZone'];
+
+  await fetch('https://test.eventmanagerbot.peredelano.io:8443/event', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(adjustedData)
+  });
+});
+
+const formMapper = (storesData: (string | number)[], stores: typeof formDataStores) => {
+  const data: Record<string, string | number> = {};
   for (let i = 0; i < storesData.length; i++) {
-    if (editFormData[i].type === 'select') {
-      // Добавляем значение выбранного часового пояса
-      data[editFormData[i].systemName] = storesData[i];
-    } else {
-      data[editFormData[i].systemName] = storesData[i];
-    }
+    data[stores[i].systemName] = storesData[i];
   }
   return data;
 };
 
-// Обновляем sample, чтобы включить новое поле выбора часового пояса
 sample({
   source: formDataStores.map(({ valueStore }) => valueStore),
   clock: submitForm,

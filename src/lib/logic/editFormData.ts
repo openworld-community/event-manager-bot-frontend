@@ -76,10 +76,10 @@ export const editFormData: InputData[] = [
     initValue: 'USD',
     type: 'text'
   },
-  {
+ {
     label: 'Time Zone',
-    systemName: 'timezone',
-    initValue: '',
+    systemName: 'timeZone',
+    initValue: Intl.DateTimeFormat().resolvedOptions().timeZone,
     type: 'select'
   }
 ];
