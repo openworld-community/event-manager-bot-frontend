@@ -16,7 +16,7 @@
              valueStore={inputData.valueStore} />
     {/each}
 
-    <button type="submit" on:click|preventDefault={() => sendDataToServer($editFormData)}>Create event</button>
+    <button type="submit" on:click|preventDefault={() => sendDataToServer(editFormData)}>Create event</button>
   </form>
 </main>
 
