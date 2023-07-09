@@ -21,8 +21,11 @@ export const createFormEventHandler =
 // Создаем новую функцию для обработки события выбора часового пояса
 export const createTimeZoneEventHandler =
   (handler: EffectorEvent<FormInputEventType>): FormEventHandler<HTMLSelectElement> =>
-  (event) =>
-    handler(event.target.value);
+  (event) => {
+    if (event.target) {
+      handler(event.target.value);
+    }
+  };
 
 // Обновляем formDataStores, чтобы включить новое поле выбора часового пояса
 export const formDataStores = editFormData.map((item) => {
