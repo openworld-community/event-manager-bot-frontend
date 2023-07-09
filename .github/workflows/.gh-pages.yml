@@ -43,6 +43,9 @@ jobs:
       - name: Install Node modules
         run: pnpm i
 
+      - name: Install axios module
+        run: pnpm i axios
+
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.61.0
         id: version
