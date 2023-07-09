@@ -28,7 +28,7 @@ export const formDataStores = editFormData.map((item) => {
 export const submitForm = createEvent<HTMLFormElement>();
 
 const submitFormFx = createEffect(async (data: Record<string, string>) => {
-  const response = await axios.post(`${process.env.API_URL}/event`, data);
+  const response = await axios.post(`${apiServer}:${apiPort}/event`, data);
   return response.data;
 });
 
