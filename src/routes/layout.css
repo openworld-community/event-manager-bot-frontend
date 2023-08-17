@@ -1,0 +1,11 @@
+ * > div#root {
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .main {
+    height: calc(100dvh - 48px - 48px);
+    background-color: aliceblue;
+ }

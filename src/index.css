@@ -1,0 +1,29 @@
+#root {
+  font-family: 'SF Pro Text', sans-serif;
+  background-color: #FFFFFF33;
+  width: 400px;
+}
+
+div#root {
+    font-size: 22px;
+    margin: 3px;
+    height: calc(100dvh - 2vh);
+  }
+  
+  @media only screen and (min-width: 768px) {
+    div#root {
+      margin: 9px;
+      height: calc(100dvh - 4vh);
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    div#root {
+      margin: 30px;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: calc(100dvh - 6vh);
+    }
+  }
