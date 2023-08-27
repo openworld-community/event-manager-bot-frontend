@@ -3,18 +3,19 @@
 
   export let size: String | 'small' | 'normal' | 'large' = 'normal'
   export let variant: String | 'primary' | 'secondary' = 'primary';
+  export let rounded: String | 'big-radius' | 'small-radius' = 'small-radius';
   export let outline = false;
   export let flat = false;
   export let disabled = false;
-  export let rounded = false;
 </script>
 
 <button
-class="{variant} {size}"
+class={`${variant}`}
 class:outline
 class:flat
 class:disabled
 class:rounded
+class:size
 on:click
 on:focus
 on:submit
@@ -29,12 +30,13 @@ on:submit
      --primary-text: #fff;
      --secondary-text: #008585;
      --focus-ring: #857372;
+	 --big-radius: 5rem;
+	 --small-radius: 1rem;
      cursor: pointer;
      padding: .5em, 1.5em;
      font-weight: bold;
      outline: 0;
      border: none;
-     border-radius: 5rem;
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.199);
      transition: box-shadow scale 100ms ease-in;
 

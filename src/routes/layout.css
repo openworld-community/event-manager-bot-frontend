@@ -8,4 +8,7 @@
  .main {
     height: calc(100dvh - 48px - 48px);
     background-color: aliceblue;
+    width: 340px;
+
+    display: grid;
  }
