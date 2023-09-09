@@ -1,17 +1,12 @@
 <script>
-  import {onMount} from 'svelte'
+  // import { onMount } from 'svelte/types/runtime/internal/lifecycle'; 
   import Button from './button.svelte';
   import { isPopupOpenStore, togglePopup } from '$lib/logic/showPopup';
-  let container;
    
   function toggle() {
-    let isOpen = isPopupOpenStore.getState()
-    togglePopup(!isOpen)
+    togglePopup(true)
+    console.log('toggled')
   }
-
-  const fetchVersion = (async () => {
-    const response = await fetch('')
-  })
 </script>
 
 <footer class="footer">
@@ -30,6 +25,6 @@
     height: 48px;
     display: grid;
     grid-template-columns: 80px 1fr 2px;
-  }
 
+  }
 </style>
