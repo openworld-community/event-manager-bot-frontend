@@ -3,7 +3,7 @@
 
   export let showPopup: Boolean = false;
   export let variant: String = 'menu-popup'
-   
+
   function toggle() {
     togglePopup(false)
     console.log(isPopupOpenStore.getState())
@@ -56,7 +56,6 @@ on:keydown
 
     .popup {
       position: absolute;
-      top: 15%;
       margin: 2px auto;
       padding: 10px;
       border-radius: 1rem;
