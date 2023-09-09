@@ -40,7 +40,19 @@ on:submit
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.199);
      transition: box-shadow scale 100ms ease-in;
 
-     height: 38px;
+     display: inline-block;
+   }
+
+   .small {
+	width: 150px;
+   }
+
+   .normal {
+	width: 200px;
+   }
+
+   .large {
+	width: 300px;
    }
 
    button:hover,
