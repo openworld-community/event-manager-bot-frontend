@@ -35,6 +35,7 @@
   },
   "type": "module",
   "dependencies": {
-    "effector": "^22.8.6"
+    "effector": "^22.8.6",
+    "sass": "^1.67.0"
   }
 }
