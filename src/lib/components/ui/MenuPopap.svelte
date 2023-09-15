@@ -13,7 +13,7 @@
 
 <div class="menu-popup">
 <Popup bind:showPopup
-variant='menu-popup'
+variant='primary'
 >
 <div>
 
@@ -25,7 +25,8 @@ variant='menu-popup'
  <div class="menu-popup-btn">
   <Button
   variant='primary'
-  size='large'
+  size='320px'
+  height='45px'
   rounded='small-radius'
   on:click = {() => toggle()}
  >
@@ -41,7 +42,8 @@ variant='menu-popup'
  <div class="menu-popup-btn">
   <Button
    variant='secondary'
-   size='large'
+   size='320px'
+   height='45px'
    rounded='small-radius'
    on:click = {() => toggle()}
   >

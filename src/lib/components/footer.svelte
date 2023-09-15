@@ -11,7 +11,8 @@
 
 <footer class="footer">
   <Button
-  size='large'
+  size='60px'
+  height='30px'
   on:click = {() => toggle()}
   >
     Меню
