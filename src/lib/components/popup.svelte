@@ -2,7 +2,7 @@
   import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
 
   export let showPopup: Boolean = false;
-  export let variant: String = 'menu-popup'
+  export let variant: String | 'primary' | 'secondary' = 'primary';
 
   function toggle() {
     togglePopup(false)
@@ -16,8 +16,13 @@ on:close = {() => toggle()}
 on:click
 on:keydown
 >
-  <div class={`popup ${variant}`}>
-    <div class="popup-header">
+  <div class={`popup`}
+   style="--variant: {variant}"
+  >
+    <div
+      class={`popup-header`}
+      style="--variant: {variant}"
+    >
       <p
       on:click = {() => toggle()}
       on:keydown
@@ -27,13 +32,14 @@ on:keydown
       style="font-size: 1.2rem;"
       >PeredelanoCo</p>
     </div>
-    <div class="popup-body">
+    <div class={`popup-body`}
+    >
       <slot name="content" />
     </div>
   </div>
 </div>
 
-<style>
+<style lang="scss">
     .popup-outer {
       position: relative;
       top: 0;
@@ -42,8 +48,6 @@ on:keydown
       right: 0;
       transition: opacity 500ms;
       z-index: 1;
-
-      margin-top: 30px;
     }
     
     .popup-outer.nonactive {
@@ -55,17 +59,21 @@ on:keydown
     }
 
     .popup {
+
       position: absolute;
       margin: 2px auto;
-      padding: 10px;
+      padding-bottom: 2px;
       border-radius: 1rem;
-      width: 320px;
+      width: 340px;
       transition: all 5s ease-in-out;
-      border-radius: 3px solid red;
+      border-radius: 3px;
       z-index: 10;
 
       display: flex;
       flex-flow: column nowrap;
+
+      --primary-bg-color: #8C8C8C;
+      --secondary-bg-color: #E5E5E5;
     }
 
     .popup-header {
@@ -75,9 +83,26 @@ on:keydown
       flex-flow: row nowrap;
       gap: 20px;
       margin-bottom: 5px;
+
+      background: inherit;
+
+      &[style*="--variant: primary"] {
+        background-color: var(--secondary-bg-color);
+      }
+      &[style*="--variant: secondary"] {
+        background-color:var(--primary-bg-color);
+      }
     }
 
-    .menu-popup {
-      background: #E5E5E5;
+    .popup-body {
+      background: inherit;
     }
+  
+    .popup[style*="--variant: primary"] {
+    background-color: var(--primary-bg-color);
+    }
+
+  .popup[style*="--variant: secondary"] {
+  background-color: var(--secondary-bg-color);
+}
 </style>

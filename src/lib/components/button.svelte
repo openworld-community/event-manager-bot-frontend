@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { disableScrollHandling } from "$app/navigation";
-
-  export let size: String | 'small' | 'normal' | 'large' = 'normal'
+  export let height: String
+  export let size: String
   export let variant: String | 'primary' | 'secondary' = 'primary';
   export let rounded: String | 'big-radius' | 'small-radius' = 'small-radius';
   export let outline = false;
@@ -16,6 +15,7 @@ class:flat
 class:disabled
 class:rounded
 class:size
+style="--size:{size}; --height:{height} "
 on:click
 on:focus
 on:submit
@@ -23,7 +23,7 @@ on:submit
   <slot />
 </button>
 
-<style>
+<style lang="scss">
    button {
      --primary: #008585;
      --secondary: #fff;
@@ -31,7 +31,7 @@ on:submit
      --secondary-text: #008585;
      --focus-ring: #857372;
 	 --big-radius: 5rem;
-	 --small-radius: 1rem;
+	 --small-radius: 5px;
      cursor: pointer;
      padding: .5em, 1.5em;
      font-weight: bold;
@@ -42,19 +42,6 @@ on:submit
 
      display: inline-block;
    }
-
-   .small {
-	width: 150px;
-   }
-
-   .normal {
-	width: 200px;
-   }
-
-   .large {
-	width: 300px;
-   }
-
    button:hover,
 	button:focus {
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.199);
@@ -93,5 +80,10 @@ on:submit
 	}
 	button.rounded {
 		border-radius: 32px;
+	}
+    button.size {
+	  --size: var(--size);
+      width: var(--size);
+	  height: var(--height)
 	}
 </style>
