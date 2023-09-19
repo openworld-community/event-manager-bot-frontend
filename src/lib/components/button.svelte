@@ -1,6 +1,7 @@
 <script lang="ts">
   export let height: String
   export let size: String
+  export let borderRadius: String
   export let variant: String | 'primary' | 'secondary' = 'primary';
   export let rounded: String | 'big-radius' | 'small-radius' = 'small-radius';
   export let outline = false;
@@ -9,13 +10,13 @@
 </script>
 
 <button
-class={`${variant}`}
+class={`button ${variant}`}
 class:outline
 class:flat
 class:disabled
 class:rounded
 class:size
-style="--size:{size}; --height:{height} "
+style={`--size:${size}; --height:${height}; --border-radius:${borderRadius}`}
 on:click
 on:focus
 on:submit
@@ -31,7 +32,7 @@ on:submit
      --secondary-text: #008585;
      --focus-ring: #857372;
 	 --big-radius: 5rem;
-	 --small-radius: 5px;
+	 --small-radius: 10px;
      cursor: pointer;
      padding: .5em, 1.5em;
      font-weight: bold;
@@ -79,7 +80,8 @@ on:submit
 		cursor: not-allowed !important;
 	}
 	button.rounded {
-		border-radius: 32px;
+		--border-radius: var(--border-radius);
+		border-radius: var(--border-radius)
 	}
     button.size {
 	  --size: var(--size);
