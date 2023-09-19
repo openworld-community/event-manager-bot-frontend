@@ -66,13 +66,12 @@ on:keydown
       border-radius: 1rem;
       width: 340px;
       transition: all 5s ease-in-out;
-      border-radius: 3px;
       z-index: 10;
 
       display: flex;
       flex-flow: column nowrap;
 
-      --primary-bg-color: #8C8C8C;
+      --primary-bg-color: #EFEDED;
       --secondary-bg-color: #E5E5E5;
     }
 
@@ -82,7 +81,7 @@ on:keydown
       display: flex;
       flex-flow: row nowrap;
       gap: 20px;
-      margin-bottom: 5px;
+      // margin-bottom: 5px;
 
       background: inherit;
 

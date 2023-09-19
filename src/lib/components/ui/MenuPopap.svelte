@@ -28,6 +28,7 @@ variant='primary'
   size='320px'
   height='45px'
   rounded='small-radius'
+  borderRadius='8px'
   on:click = {() => toggle()}
  >
    <Link url="./edit-form">
@@ -44,6 +45,7 @@ variant='primary'
    variant='secondary'
    size='320px'
    height='45px'
+   borderRadius='8px'
    rounded='small-radius'
    on:click = {() => toggle()}
   >
@@ -57,14 +59,14 @@ variant='primary'
 <style>
   .menu-popup {
     position: absolute;
-    bottom: 40%;
+    bottom: 37%;
     left: 0;
     width: 100%;
   }
   
   .menu-content {
     width: 320px;
-    height: 200px;
+    height: 170px;
 
     display: flex;
     flex-flow: column nowrap;
