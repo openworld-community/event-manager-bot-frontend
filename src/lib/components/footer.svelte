@@ -2,6 +2,7 @@
   // import { onMount } from 'svelte/types/runtime/internal/lifecycle'; 
   import Button from './button.svelte';
   import { isPopupOpenStore, togglePopup } from '$lib/logic/showPopup';
+  import Input from './Input.svelte';
    
   function toggle() {
     togglePopup(true)
@@ -9,7 +10,6 @@
 </script>
 
 <footer class="footer">
-  <div class="footer--menu-btn-box">
     <Button
     size='60px'
     height='30px'
@@ -21,8 +21,10 @@
       <p>Меню</p>
     </div>
     </Button>
-  </div>
-  <p>hello im footer</p>
+  <Input 
+  varinat="menu"
+  placeholder="message"
+  />
 
 </footer>
 
@@ -30,12 +32,11 @@
   .footer {
     width: 340px;
     height: 48px;
-    display: grid;
-    grid-template-columns: 80px 1fr 2px;
-
-    &--menu-btn-box {
-      margin-top: 14px;
-    }
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+   align-items: center;
+   gap: 100px;
 
     &--menu-button {
       display: flex;
