@@ -23,6 +23,6 @@
       display: flex;
       flex-flow: column nowrap;
       position: relative;
-      margin-bottom: 50px;
+
     }
   </style>
