@@ -2,7 +2,7 @@
   export let height: String
   export let size: String
   export let borderRadius: String
-  export let variant: String | 'primary' | 'secondary' = 'primary';
+  export let variant: String | 'primary' | 'secondary' | 'none' = 'primary';
   export let rounded: String | 'big-radius' | 'small-radius' = 'small-radius';
   export let outline = false;
   export let flat = false;
