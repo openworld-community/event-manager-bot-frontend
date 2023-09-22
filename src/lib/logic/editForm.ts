@@ -2,11 +2,11 @@ import { createEffect, createEvent, createStore, sample } from 'effector';
 import type { Event as EffectorEvent } from 'effector';
 import type { FormEventHandler } from 'svelte/elements';
 import { editFormData } from './editFormData';
-import { PUBLIC_HOST_TEST } from '$env/static/public';
+import { HOST_TEST } from '$lib/utils/endpoints';
 import { Reservation } from './event';
+import type { FormInputEventType } from '$lib/types/formTypes';
 
-type FormInputEventType = string;
-type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
+export type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
 
 const handleInputChange = (_: unknown, value: FormInputEventType) => value;
 
@@ -30,7 +30,7 @@ export const submitForm = createEvent<HTMLFormElement>();
 
 const submitFormFx = createEffect(async (data: Record<string, string>) => {
   const event = new Reservation(data)
-  const res = await fetch(`${PUBLIC_HOST_TEST}/event`, {
+  const res = await fetch(`${HOST_TEST}/event`, {
     method: 'POST',
     mode: 'cors',
     headers: {
