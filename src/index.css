@@ -1,38 +1,38 @@
 #root {
   font-family: 'SF Pro Text', sans-serif;
-  background-color: #FFFFFF33;
+  background-color: #ffffff33;
   width: 400px;
 }
 
 div#root {
-    font-size: 22px;
-    margin: 3px;
-    height: calc(100dvh - 2vh);
+  font-size: 22px;
+  margin: 3px;
+  height: calc(100dvh - 2vh);
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 45px 1fr 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 45px 1fr 50px;
 
-    --primary-green: #008585;
-    --secondary-green: #5D8500;
-    --primary-color: #EFEDED;
-    --secondary-color: #EFEDED;
+  --primary-green: #008585;
+  --secondary-green: #5d8500;
+  --primary-color: #efeded;
+  --secondary-color: #efeded;
+}
+
+@media only screen and (min-width: 768px) {
+  div#root {
+    margin: 9px;
+    height: calc(100dvh - 4vh);
   }
-  
-  @media only screen and (min-width: 768px) {
-    div#root {
-      margin: 9px;
-      height: calc(100dvh - 4vh);
-    }
+}
+
+@media only screen and (min-width: 1024px) {
+  div#root {
+    margin: 30px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: calc(100dvh - 6vh);
   }
-  
-  @media only screen and (min-width: 1024px) {
-    div#root {
-      margin: 30px;
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: calc(100dvh - 6vh);
-    }
-  }
+}

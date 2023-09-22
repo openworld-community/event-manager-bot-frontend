@@ -1,8 +1,8 @@
 <script lang="ts">
   import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
 
-  export let showPopup: Boolean = false;
-  export let variant: String | 'primary' | 'secondary' = 'primary';
+  export let showPopup = false;
+  export let variant: string | 'primary' | 'secondary' = 'primary';
 
   function toggle() {
     togglePopup(false)

@@ -5,7 +5,7 @@ type InputData = {
   systemName: string;
   initValue: string;
   type: HTMLInputTypeAttribute;
-  variant: string
+  variant: string;
 };
 
 export const editFormData: InputData[] = [

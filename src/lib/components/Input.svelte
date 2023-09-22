@@ -5,10 +5,10 @@
 
   export let label = '';
   export let type: HTMLInputTypeAttribute = 'text';
-  export let varinat: String | 'menu' | 'form-event';
+  export let varinat: string | 'menu' | 'form-event';
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
   export let valueStore: Store<string> | undefined = undefined;
-  export let placeholder: string = ''
+  export let placeholder = ''
 
   console.log('placeholder', placeholder)
 </script>

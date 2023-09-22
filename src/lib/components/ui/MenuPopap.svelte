@@ -2,7 +2,7 @@
   import Popup from "../popup.svelte";
   import Button from "../button.svelte";
   import Link from "../link.svelte";
-  import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
+  import { togglePopup } from "$lib/logic/showPopup";
 
   const toggle = (): void => {
     togglePopup(false)

@@ -2,7 +2,7 @@
   // import { onMount } from 'svelte/types/runtime/internal/lifecycle'; 
   import Button from './button.svelte';
   import Input from './Input.svelte';
-  import { isPopupOpenStore, togglePopup } from '$lib/logic/showPopup';
+  import { togglePopup } from '$lib/logic/showPopup';
   import { updateMenuInput, menuInput } from '$lib/logic/editMenuInput';
 
   menuInput.watch(message => {

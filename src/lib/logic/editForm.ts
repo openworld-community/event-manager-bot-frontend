@@ -29,7 +29,7 @@ export const formDataStores = editFormData.map((item) => {
 export const submitForm = createEvent<HTMLFormElement>();
 
 const submitFormFx = createEffect(async (data: Record<string, string>) => {
-  const event = new Reservation(data)
+  const event = new Reservation(data);
   const res = await fetch(`${HOST_TEST}/event`, {
     method: 'POST',
     mode: 'cors',
@@ -37,20 +37,19 @@ const submitFormFx = createEffect(async (data: Record<string, string>) => {
       'сontent-type': 'application/json'
     },
     body: JSON.stringify(event.toObject())
-  }).then((result) => console.log(result))
-  return res
+  }).then((result) => console.log(result));
+  return res;
 });
 const formMapper = (storesData: string[]) => {
   const data: Record<string, string> = {};
   for (let i = 0; i < storesData.length; i++) {
     data[editFormData[i].systemName] = storesData[i];
   }
-  return data
+  return data;
 };
 sample({
   source: formDataStores.map(({ valueStore }) => valueStore),
   clock: submitForm,
   fn: formMapper,
   target: submitFormFx
-})
-
+});

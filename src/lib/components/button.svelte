@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let height: String
-  export let size: String
-  export let borderRadius: String
-  export let variant: String | 'primary' | 'secondary' | 'none' = 'primary';
-  export let rounded: String | 'big-radius' | 'small-radius' = 'small-radius';
+  export let height: string
+  export let size: string
+  export let borderRadius: string
+  export let variant: string | 'primary' | 'secondary' | 'none' = 'primary';
+  export let rounded: string | 'big-radius' | 'small-radius' = 'small-radius';
   export let outline = false;
   export let flat = false;
   export let disabled = false;
