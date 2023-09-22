@@ -12,6 +12,11 @@ div#root {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 45px 1fr 50px;
+
+    --primary-green: #008585;
+    --secondary-green: #5D8500;
+    --primary-color: #EFEDED;
+    --secondary-color: #EFEDED;
   }
   
   @media only screen and (min-width: 768px) {
