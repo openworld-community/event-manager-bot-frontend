@@ -1,9 +1,14 @@
 <script>
   // import { onMount } from 'svelte/types/runtime/internal/lifecycle'; 
   import Button from './button.svelte';
-  import { isPopupOpenStore, togglePopup } from '$lib/logic/showPopup';
   import Input from './Input.svelte';
-   
+  import { isPopupOpenStore, togglePopup } from '$lib/logic/showPopup';
+  import { updateMenuInput, menuInput } from '$lib/logic/editMenuInput';
+
+  menuInput.watch(message => {
+    console.log(message)
+  })
+
   function toggle() {
     togglePopup(true)
   }
@@ -21,22 +26,35 @@
       <p>Меню</p>
     </div>
     </Button>
-  <Input 
-  varinat="menu"
-  placeholder="message"
-  />
-
+    <form>
+      <Input 
+      varinat="menu"
+      placeholder = 'message'
+      handler = {(e) => updateMenuInput(e.currentTarget.value)}
+      valueStore = {menuInput}
+      />
+      <Button
+      height='fit-content'
+      size='fit-content'
+      borderRadius='5px'
+      variant = 'none'
+      >
+      ^
+      |
+      </Button>
+    </form>
 </footer>
 
 <style lang="scss">
   .footer {
     width: 340px;
     height: 48px;
-   display: flex;
-   flex-flow: row nowrap;
-   justify-content: center;
-   align-items: center;
-   gap: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    background-color: --primary-color;
 
     &--menu-button {
       display: flex;
