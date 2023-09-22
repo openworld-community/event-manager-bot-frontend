@@ -8,7 +8,7 @@
   export let varinat: String | 'menu' | 'form-event';
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
   export let valueStore: Store<string> | undefined = undefined;
-  export let placeholder: string
+  export let placeholder: string = ''
 
   console.log('placeholder', placeholder)
 </script>
