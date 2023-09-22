@@ -1,0 +1,1 @@
+export const HOST_TEST: String = 'https://test.eventmanagerbot.peredelano.io:8443'
