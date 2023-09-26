@@ -3,6 +3,7 @@
   import Button from "../button.svelte";
   import Link from "../Link.svelte";
   import { togglePopup } from "$lib/logic/showPopup";
+  import { PopupVariant } from "$lib/types/enums";
   import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
 
   const toggle = (): void => {
@@ -14,7 +15,7 @@
 
 <div class="menu-popup">
 <Popup bind:showPopup
-variant='primary'
+variant = {PopupVariant.primary}
 >
 <div>
 

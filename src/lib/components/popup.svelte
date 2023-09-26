@@ -1,8 +1,9 @@
 <script lang="ts">
   import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
+  import type { PopupVariant } from "$lib/types/enums";
 
   export let showPopup = false;
-  export let variant: string | 'primary' | 'secondary' = 'primary';
+  export let variant: PopupVariant
 
   function toggle() {
     togglePopup(false)
