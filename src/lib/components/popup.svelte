@@ -5,6 +5,13 @@
   export let showPopup = false;
   export let variant: PopupVariant
 
+  const handleEscClose = () => {
+     document.addEventListener("keydown", (event) => {
+       if (event.key === 'Escape') {
+        togglePopup(false)
+       }
+     })
+  }
 </script>
 
 <div 
@@ -12,8 +19,8 @@ class='popup-outer'
 class:active={showPopup}
 class:disabled={!showPopup}
 on:close = {() => togglePopup(false)}
-on:click
-on:keydown
+on:click 
+on:keydown = {() => handleEscClose()}
 >
   <div class={`popup`}
    style="--variant: {variant}"
