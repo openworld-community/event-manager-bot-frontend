@@ -1,5 +1,9 @@
+<script>
+  import { peredelanoName } from "$lib/utils/strings";
+</script>
+
 <header class="header">
-    <p>PeredelanoConf_event_manager</p>
+    <p>{peredelanoName}</p>
 </header>
 
 <style>
