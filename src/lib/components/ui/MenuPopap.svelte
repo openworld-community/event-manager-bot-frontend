@@ -1,7 +1,7 @@
 <script lang="ts">
   import Popup from "../popup.svelte";
   import Button from "../button.svelte";
-  import Link from "../link.svelte";
+  import Link from "../Link.svelte";
   import { togglePopup } from "$lib/logic/showPopup";
   import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
 
