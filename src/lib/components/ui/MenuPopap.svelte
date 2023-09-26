@@ -6,12 +6,6 @@
   import { PopupVariant } from "$lib/types/enums";
   import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
 
-  // оставил здесь прокси функцию на toggle, так как время от времени 
-  // popup закрывался не отправляя нас на страницу создания ивента 
-  const toggle = () => {
-    togglePopup(false)
-  }
-
   export let showPopup: boolean;
 </script>
 
@@ -19,14 +13,11 @@
 <Popup bind:showPopup
 variant = {PopupVariant.primary}
 >
-<div>
-
-</div>
  <div 
  slot="content"
  class="menu-content"
  >
- <div class="menu-popup-btn">
+ <!-- <div class="menu-popup-btn">
   <Button
   variant = {ButtonVariant.primary}
   width='320px'
@@ -37,11 +28,27 @@ variant = {PopupVariant.primary}
  >
    <Link url="./edit-form">
        <p
-       style="color: #fff;"
+       class="menu-popup-btn_text"
        >create new event</p> 
    </Link>
  
  </Button>
+ </div> -->
+ <div class="menu-popup-btn">
+   <Link url="./edit-form">
+    <Button
+    variant = {ButtonVariant.primary}
+    width='320px'
+    height='45px'
+    rounded = {ButtonRounded.aLittle}
+    borderRadius='8px'
+    on:click = {() => togglePopup(false)}
+    >
+    <p
+    class="menu-popup-btn_text"
+    >create new event</p> 
+    </Button>
+  </Link>
  </div>
   
  <div class="menu-popup-btn">
@@ -51,7 +58,7 @@ variant = {PopupVariant.primary}
    height='45px'
    borderRadius='8px'
    rounded = {ButtonRounded.aLittle}
-   on:click = {() => toggle()}
+   on:click = {() => togglePopup(false)}
   >
     <p>view my ivents</p>
   </Button>
@@ -60,10 +67,10 @@ variant = {PopupVariant.primary}
 </Popup>
 </div>
 
-<style>
+<style lang="scss">
   .menu-popup {
     position: absolute;
-    bottom: 37%;
+    bottom: 30%;
     left: 0;
     width: 100%;
   }
@@ -84,5 +91,9 @@ variant = {PopupVariant.primary}
     height: 20px;
 
     padding: 5px;
+
+    &_text {
+     color: #fff;
+    }
   }
 </style>
