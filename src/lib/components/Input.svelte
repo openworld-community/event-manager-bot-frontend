@@ -3,14 +3,14 @@
   import type {FormEventHandler, HTMLInputTypeAttribute} from "svelte/elements";
   import type {Store} from "effector";
 
+  enum Variant { menu, formEvent }
+
   export let label = '';
   export let type: HTMLInputTypeAttribute = 'text';
-  export let varinat: string | 'menu' | 'form-event';
+  export let varinat: Variant;
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
   export let valueStore: Store<string> | undefined = undefined;
   export let placeholder = ''
-
-  console.log('placeholder', placeholder)
 </script>
 
 <label class="input--box">
@@ -36,7 +36,6 @@
     }
 
     &--box {
-      display: block;
       display: flex;
       flex-flow: column nowrap;
       align-items: flex-start;
@@ -47,11 +46,10 @@
       border-radius: 20px;
       border: 1px solid #EFEDED;
       font-size: 16px;
-      font-weight: 600;
-      color: #000;
       padding-left: 5px;
 
-      &:placeholder-shown, &::placeholder {
+      &:placeholder-shown, 
+      &::placeholder {
       color: var(--primary-color);
       font-weight: 600;
     }
