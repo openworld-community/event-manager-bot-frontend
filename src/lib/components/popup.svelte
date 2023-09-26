@@ -5,15 +5,11 @@
   export let showPopup = false;
   export let variant: PopupVariant
 
-  function toggle() {
-    togglePopup(false)
-    console.log(isPopupOpenStore.getState())
-  }
 </script>
 
 <div 
 class={`popup-outer ${showPopup ? 'active' : 'nonactive'}`}
-on:close = {() => toggle()}
+on:close = {() => togglePopup(false)}
 on:click
 on:keydown
 >
@@ -25,7 +21,7 @@ on:keydown
       style="--variant: {variant}"
     >
       <p
-      on:click = {() => toggle()}
+      on:click = {() => togglePopup(false)}
       on:keydown
       style="color: #008585; font-size: 1.2rem; cursor: pointer"
       >Отмена</p>

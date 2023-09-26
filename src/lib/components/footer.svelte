@@ -12,9 +12,6 @@
     console.log(message)
   })
 
-  function toggle() {
-    togglePopup(true)
-  }
 </script>
 
 <footer class="footer">
@@ -24,7 +21,7 @@
     borderRadius='12px'
     variant = {ButtonVariant.primary}
     rounded = {ButtonRounded.aLittle}
-    on:click = {() => toggle()}
+    on:click = {() => togglePopup(true)}
     >
     <div class="footer--menu-button">
       <p>X</p>

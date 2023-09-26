@@ -6,6 +6,8 @@
   import { PopupVariant } from "$lib/types/enums";
   import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
 
+  // оставил здесь прокси функцию на toggle, так как время от времени 
+  // popup закрывался не отправляя нас на страницу создания ивента 
   const toggle = (): void => {
     togglePopup(false)
   }
