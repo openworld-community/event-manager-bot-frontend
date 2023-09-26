@@ -61,7 +61,7 @@
     align-items: center;
     margin-top: 20px;
     gap: 90px;
-    background-color: --primary-color;
+    background-color: var(--primary-color);
 
     &--menu-button {
       display: flex;
@@ -70,7 +70,7 @@
       justify-content: center;
       gap: 5px;
 
-      height: inherit;
+      height: auto;
 
       p {
         height: 15px;
@@ -78,4 +78,5 @@
       }
     }
   }
+
 </style>
