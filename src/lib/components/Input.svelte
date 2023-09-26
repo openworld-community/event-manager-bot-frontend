@@ -20,6 +20,7 @@
     value={placeholder ? '' : $valueStore}
     class={`input input--${variant}`}
     placeholder={placeholder}
+    autocomplete={label}
   />
 </label>
 
