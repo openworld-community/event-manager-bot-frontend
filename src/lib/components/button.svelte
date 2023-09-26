@@ -1,6 +1,6 @@
 <script lang="ts">
   export let height: string
-  export let size: string
+  export let width: string
   export let borderRadius: string
   export let variant: string | 'primary' | 'secondary' | 'none' = 'primary';
   export let rounded: string | 'big-radius' | 'small-radius' = 'small-radius';
@@ -15,8 +15,8 @@ class:outline
 class:flat
 class:disabled
 class:rounded
-class:size
-style={`--size:${size}; --height:${height}; --border-radius:${borderRadius}`}
+class:width
+style={`--width:${width}; --height:${height}; --border-radius:${borderRadius}`}
 on:click
 on:focus
 on:submit
@@ -25,7 +25,7 @@ on:submit
 </button>
 
 <style lang="scss">
-   button {
+   .button {
      --primary: #008585;
      --secondary: #fff;
      --primary-text: #fff;
@@ -43,49 +43,47 @@ on:submit
 
      display: inline-block;
    }
-   button:hover,
-	button:focus {
+    button:hover, button:focus {
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.199);
 	}
 	button:focus {
 		border: 2px solid var(--focus-ring);
 	}
-    button.primary {
+    .primary {
 		background-color: var(--primary);
 		color: var(--primary-text);
 	}
-    button.secondary {
+    .secondary {
 		background-color: var(--secondary);
 		color: var(--secondary-text);
 	}
-    button.outline {
-		background-color: transparent !important;
+    .outline {
+		background-color: transparent;
 	}
-	button.outline.primary {
+	.outline.primary {
 		color: var(--primary);
 		border: 1px solid var(--primary);
 	}
-	button.outline.secondary {
+	.outline.secondary {
 		color: var(--secondary);
 		border: 1px solid var(--secondary);
 	}
-    button.flat {
-		box-shadow: none !important;
+    .flat {
+		box-shadow: none;
 	}
-	button.disabled {
-		opacity: 0.3 !important;
+	.disabled {
+		opacity: 0.3;
 		pointer-events: none;
 	}
-	button.disabled:hover {
-		cursor: not-allowed !important;
+	.disabled:hover {
+		cursor: not-allowed;
 	}
-	button.rounded {
-		--border-radius: var(--border-radius);
+	.rounded {
 		border-radius: var(--border-radius)
 	}
-    button.size {
-	  --size: var(--size);
-      width: var(--size);
+    .size {
+      width: var(--width);
 	  height: var(--height)
 	}
+
 </style>

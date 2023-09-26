@@ -25,7 +25,7 @@ variant='primary'
  <div class="menu-popup-btn">
   <Button
   variant='primary'
-  size='320px'
+  width='320px'
   height='45px'
   rounded='small-radius'
   borderRadius='8px'
@@ -43,7 +43,7 @@ variant='primary'
  <div class="menu-popup-btn">
   <Button
    variant='secondary'
-   size='320px'
+   width='320px'
    height='45px'
    borderRadius='8px'
    rounded='small-radius'
