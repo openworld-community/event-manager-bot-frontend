@@ -12,6 +12,8 @@
        }
      })
   }
+
+  // какой обработчик повесить на клик ума не приложу честно говоря, учитывая что весь outer будет прятаться за попапом
 </script>
 
 <div 
@@ -22,18 +24,17 @@ on:close = {() => togglePopup(false)}
 on:click 
 on:keydown = {() => handleEscClose()}
 >
-  <div class={`popup`}
-   style="--variant: {variant}"
+  <div class={`popup ${variant}`}
+
   >
     <div
-      class={`popup-header`}
-      style="--variant: {variant}"
+      class={`popup-header ${variant}`}
     >
-      <p
+      <span
       on:click = {() => togglePopup(false)}
       on:keydown
-      style="color: #008585; font-size: 1.2rem; cursor: pointer"
-      >Отмена</p>
+      class='popup-header_exit'
+      >Отмена</span>
       <p 
       style="font-size: 1.2rem;"
       >PeredelanoCo</p>
@@ -48,10 +49,6 @@ on:keydown = {() => handleEscClose()}
 <style lang="scss">
     .popup-outer {
       position: relative;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
       transition: opacity 500ms;
       z-index: 1;
     }
@@ -79,6 +76,26 @@ on:keydown = {() => handleEscClose()}
 
       --primary-bg-color: #EFEDED;
       --secondary-bg-color: #E5E5E5;
+
+      &.primary {
+       .popup-header {
+         background-color: var(--secondary-bg-color);
+       }
+
+       .popup-body {
+         background-color: var(--primary-bg-color);
+       }
+      }
+
+      &.secondary {
+       .popup-header {
+         background-color: var(--primary-bg-color);
+       }
+
+       .popup-body {
+        background-color: var(--secondary-bg-color);
+       }
+      }
     }
 
     .popup-header {
@@ -87,27 +104,17 @@ on:keydown = {() => handleEscClose()}
       display: flex;
       flex-flow: row nowrap;
       gap: 20px;
-      // margin-bottom: 5px;
 
       background: inherit;
 
-      &[style*="--variant: primary"] {
-        background-color: var(--secondary-bg-color);
-      }
-      &[style*="--variant: secondary"] {
-        background-color:var(--primary-bg-color);
+      &_exit {
+        color: #008585;
+        font-size: 1.2rem; 
+        cursor: pointer
       }
     }
 
     .popup-body {
-      background: inherit;
+      background-color: inherit;
     }
-  
-    .popup[style*="--variant: primary"] {
-    background-color: var(--primary-bg-color);
-    }
-
-  .popup[style*="--variant: secondary"] {
-  background-color: var(--secondary-bg-color);
-}
 </style>
