@@ -1,12 +1,14 @@
-#root {
+:root {
   font-family: 'SF Pro Text', sans-serif;
   background-color: #ffffff33;
   width: 400px;
 }
 
-div#root {
+#root {
   font-size: 22px;
   margin: 3px;
+
+  /* задаем динамическую высоту во весь экран устройства и отнимаем 2/100 чтобы экран ни у кого не проваливался */
   height: calc(100dvh - 2vh);
 
   display: grid;
@@ -20,14 +22,16 @@ div#root {
 }
 
 @media only screen and (min-width: 768px) {
-  div#root {
+  /* создаем breakpoint пересчитываем высоту */
+  #root {
     margin: 9px;
     height: calc(100dvh - 4vh);
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  div#root {
+   /* создаем breakpoint пересчитываем высоту, центрируем приложение на экране */
+  #root {
     margin: 30px;
     position: absolute;
     top: 45%;
