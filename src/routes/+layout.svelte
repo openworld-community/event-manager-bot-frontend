@@ -1,7 +1,7 @@
 <script lang="ts">
     import Header from "$lib/components/header.svelte";
     import Footer from "$lib/components/footer.svelte";
-    import './layout.css'
+    import './layout.scss'
     import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
     import MenuPopap from "$lib/components/ui/MenuPopap.svelte";
   
