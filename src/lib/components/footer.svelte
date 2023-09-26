@@ -1,9 +1,12 @@
 <script>
   // import { onMount } from 'svelte/types/runtime/internal/lifecycle'; 
+  // onMount
   import Button from './button.svelte';
   import Input from './Input.svelte';
   import { togglePopup } from '$lib/logic/showPopup';
   import { updateMenuInput, menuInput } from '$lib/logic/editMenuInput';
+  import { InputVariant } from '$lib/types/enums';
+  import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
 
   menuInput.watch(message => {
     console.log(message)
@@ -16,9 +19,11 @@
 
 <footer class="footer">
     <Button
-    size='60px'
+    width='70px'
     height='30px'
     borderRadius='12px'
+    variant = {ButtonVariant.primary}
+    rounded = {ButtonRounded.aLittle}
     on:click = {() => toggle()}
     >
     <div class="footer--menu-button">
@@ -28,16 +33,17 @@
     </Button>
     <form>
       <Input 
-      varinat="menu"
+      variant = {InputVariant.menu}
       placeholder = 'message'
       handler = {(e) => updateMenuInput(e.currentTarget.value)}
       valueStore = {menuInput}
       />
       <Button
-      height='fit-content'
-      size='fit-content'
+      height='45px'
+      width='fit-content'
       borderRadius='5px'
-      variant = 'none'
+      variant = {ButtonVariant.none}
+      rounded = {ButtonRounded.aLittle}
       >
       ^
       |
@@ -53,7 +59,8 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    margin-top: 20px;
+    gap: 90px;
     background-color: --primary-color;
 
     &--menu-button {
@@ -64,6 +71,11 @@
       gap: 5px;
 
       height: inherit;
+
+      p {
+        height: 15px;
+        font-size: 16px;
+      }
     }
   }
 </style>

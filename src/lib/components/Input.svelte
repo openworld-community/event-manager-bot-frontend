@@ -2,12 +2,11 @@
   import {voidFunction} from "$lib/utils/voidFunction.js";
   import type {FormEventHandler, HTMLInputTypeAttribute} from "svelte/elements";
   import type {Store} from "effector";
-
-  enum Variant { menu, formEvent }
+  import type { InputVariant } from "$lib/types/enums";
 
   export let label = '';
   export let type: HTMLInputTypeAttribute = 'text';
-  export let varinat: Variant;
+  export let variant: InputVariant;
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
   export let valueStore: Store<string> | undefined = undefined;
   export let placeholder = ''
@@ -19,7 +18,7 @@
     type={type}
     on:input={handler}
     value={placeholder ? '' : $valueStore}
-    class={`input input--${varinat}`}
+    class={`input input--${variant}`}
     placeholder={placeholder}
   />
 </label>
@@ -69,4 +68,5 @@
       outline: none;
     }
   }
+
 </style>

@@ -1,9 +1,11 @@
 <script lang="ts">
+  import type { ButtonVariant, ButtonRounded } from "$lib/types/enums";
+
   export let height: string
   export let width: string
   export let borderRadius: string
-  export let variant: string | 'primary' | 'secondary' | 'none' = 'primary';
-  export let rounded: string | 'big-radius' | 'small-radius' = 'small-radius';
+  export let variant: ButtonVariant
+  export let rounded: ButtonRounded
   export let outline = false;
   export let flat = false;
   export let disabled = false;
@@ -81,7 +83,7 @@ on:submit
 	.rounded {
 		border-radius: var(--border-radius)
 	}
-    .size {
+    .width {
       width: var(--width);
 	  height: var(--height)
 	}

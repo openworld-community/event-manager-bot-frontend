@@ -3,6 +3,7 @@
   import Button from "../button.svelte";
   import Link from "../link.svelte";
   import { togglePopup } from "$lib/logic/showPopup";
+  import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
 
   const toggle = (): void => {
     togglePopup(false)
@@ -24,10 +25,10 @@ variant='primary'
  >
  <div class="menu-popup-btn">
   <Button
-  variant='primary'
+  variant = {ButtonVariant.primary}
   width='320px'
   height='45px'
-  rounded='small-radius'
+  rounded = {ButtonRounded.aLittle}
   borderRadius='8px'
   on:click = {() => toggle()}
  >
@@ -42,11 +43,11 @@ variant='primary'
   
  <div class="menu-popup-btn">
   <Button
-   variant='secondary'
+   variant = {ButtonVariant.secondary}
    width='320px'
    height='45px'
    borderRadius='8px'
-   rounded='small-radius'
+   rounded = {ButtonRounded.aLittle}
    on:click = {() => toggle()}
   >
     <p>view my ivents</p>
