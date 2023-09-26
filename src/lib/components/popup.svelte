@@ -8,7 +8,9 @@
 </script>
 
 <div 
-class={`popup-outer ${showPopup ? 'active' : 'nonactive'}`}
+class='popup-outer'
+class:active={showPopup}
+class:disabled={!showPopup}
 on:close = {() => togglePopup(false)}
 on:click
 on:keydown
@@ -47,7 +49,7 @@ on:keydown
       z-index: 1;
     }
     
-    .popup-outer.nonactive {
+    .popup-outer.disabled {
       opacity: 0;
     }
 
