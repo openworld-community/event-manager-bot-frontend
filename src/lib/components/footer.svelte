@@ -1,6 +1,6 @@
 <script>
   // import { onMount } from 'svelte/types/runtime/internal/lifecycle'; 
-  // onMount
+  // onMount будет использован для того чтобы показать версию приложения в футере, пока я жду на нее эндпоинт
   import Button from './button.svelte';
   import Input from './Input.svelte';
   import { togglePopup } from '$lib/logic/showPopup';

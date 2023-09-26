@@ -22,7 +22,7 @@ class:active={showPopup}
 class:disabled={!showPopup}
 on:close = {() => togglePopup(false)}
 on:click 
-on:keydown = {() => handleEscClose()}
+on:keydown = {() => togglePopup(false)}
 >
   <div class={`popup ${variant}`}
 
