@@ -17,23 +17,6 @@ variant = {PopupVariant.primary}
  slot="content"
  class="menu-content"
  >
- <!-- <div class="menu-popup-btn">
-  <Button
-  variant = {ButtonVariant.primary}
-  width='320px'
-  height='45px'
-  rounded = {ButtonRounded.aLittle}
-  borderRadius='8px'
-  on:click = {() => toggle()}
- >
-   <Link url="./edit-form">
-       <p
-       class="menu-popup-btn_text"
-       >create new event</p> 
-   </Link>
- 
- </Button>
- </div> -->
  <div class="menu-popup-btn">
    <Link url="./edit-form">
     <Button
