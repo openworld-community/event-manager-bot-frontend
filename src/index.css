@@ -11,9 +11,10 @@
   /* задаем динамическую высоту во весь экран устройства и отнимаем 2/100 чтобы экран ни у кого не проваливался */
   height: calc(100dvh - 2vh);
 
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 45px 1fr 50px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 
   --primary-green: #008585;
   --secondary-green: #5d8500;

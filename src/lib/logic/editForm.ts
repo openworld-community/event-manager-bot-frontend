@@ -30,15 +30,16 @@ export const submitForm = createEvent<HTMLFormElement>();
 
 const submitFormFx = createEffect(async (data: Record<string, string>) => {
   const event = new Reservation(data);
-  const res = await fetch(EVENT, {
+  const promise = fetch(EVENT, {
     method: 'POST',
     mode: 'cors',
     headers: {
-      'сontent-type': 'application/json'
+      'сontent-type': 'application/json',
     },
     body: JSON.stringify(event.toObject())
-  }).then((result) => console.log(result));
-  return res;
+  })
+  promise.then(res => console.log(res))
+  return await promise;
 });
 const formMapper = (storesData: string[]) => {
   const data: Record<string, string> = {};

@@ -1,6 +1,5 @@
-interface IReservationData {
-  [string: string]: string;
-}
+type ReservationData = Record<string, string>
+// если я перечисляю все поля ts начинает возмущаться, что с формы они совсем не такие приходят
 
 export class Reservation {
   adult_ticket_price: string;
@@ -15,7 +14,7 @@ export class Reservation {
   remind: string;
   ts: Date;
 
-  constructor(data: IReservationData) {
+  constructor(data: ReservationData) {
     this.adult_ticket_price = data.adult_ticket_price;
     this.children_ticket_price = data.children_ticket_price;
     this.currency = data.currency;
