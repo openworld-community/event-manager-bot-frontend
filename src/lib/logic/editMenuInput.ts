@@ -9,3 +9,6 @@ submitForm.watch(() => {
   const message = menuInput.getState();
   console.log(message);
 });
+
+// message в конечном итоге будет использоваться для общения с ботом через ui 
+// если у инпута в нижнем меню будет такой функционал (думаю что да)
