@@ -1,1 +1,1 @@
-export const peredelanoName = 'PeredelanoConf_event_manager'
+export const peredelanoName = 'PeredelanoConf_event_manager';

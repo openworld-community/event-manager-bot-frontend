@@ -34,11 +34,11 @@ const submitFormFx = createEffect(async (data: Record<string, string>) => {
     method: 'POST',
     mode: 'cors',
     headers: {
-      'сontent-type': 'application/json',
+      'сontent-type': 'application/json'
     },
     body: JSON.stringify(event.toObject())
-  })
-  promise.then(res => console.log(res))
+  });
+  promise.then((res) => console.log(res));
   return await promise;
 });
 const formMapper = (storesData: string[]) => {

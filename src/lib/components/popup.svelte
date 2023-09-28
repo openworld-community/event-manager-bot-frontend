@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
+  import { togglePopup } from "$lib/logic/showPopup";
   import type { PopupVariant } from "$lib/types/enums";
 
   export let showPopup = false;
@@ -22,7 +22,7 @@ class:active={showPopup}
 class:disabled={!showPopup}
 on:close = {() => togglePopup(false)}
 on:click 
-on:keydown = {() => togglePopup(false)}
+on:keydown = {() => handleEscClose}
 >
   <div class={`popup ${variant}`}
 
