@@ -9,9 +9,6 @@
   export let outline = false;
   export let flat = false;
   export let disabled = false;
-
-  //встает вопрос - если сделать style=`--width:{width} + px` то как тогда я сделаю fit-content
-  // если захочу, это что всю такую штуку в интерфейс запихивать???
 </script>
 
 <button

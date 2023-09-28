@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Popup from "../popup.svelte";
-  import Button from "../button.svelte";
-  import Link from "../link.svelte";
+  import Link from "../Link.svelte";
+  import Button from "../Button.svelte";
+  import Popup from "../Popup.svelte";
   import { togglePopup } from "$lib/logic/showPopup";
   import { PopupVariant } from "$lib/types/enums";
   import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
@@ -53,7 +53,7 @@ variant = {PopupVariant.primary}
 <style lang="scss">
   .menu-popup {
     position: absolute;
-    bottom: 30%;
+    bottom: calc(100dvh - 97.5dvh + 200px);
     left: 0;
     width: 100%;
   }

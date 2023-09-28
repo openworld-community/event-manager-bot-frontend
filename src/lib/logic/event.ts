@@ -1,5 +1,4 @@
 type ReservationData = Record<string, string>;
-// если я перечисляю все поля ts начинает возмущаться, что с формы они совсем не такие приходят
 
 export class Reservation {
   adult_ticket_price: string;
