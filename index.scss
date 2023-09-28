@@ -1,0 +1,43 @@
+:root {
+  font-family: 'SF Pro Text', sans-serif;
+  background-color: #ffffff33;
+  width: 400px;
+}
+
+#root {
+  font-size: 22px;
+  margin: 3px;
+
+  /* задаем динамическую высоту во весь экран устройства и отнимаем 2/100 чтобы экран ни у кого не проваливался */
+  height: calc(100dvh - 2vh);
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  --primary-green: #008585;
+  --secondary-green: #5d8500;
+  --primary-color: #efeded;
+  --secondary-color: #efeded;
+}
+
+@media only screen and (min-width: 768px) {
+  /* создаем breakpoint пересчитываем высоту */
+  #root {
+    margin: 9px;
+    height: calc(100dvh - 4vh);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* создаем breakpoint пересчитываем высоту, центрируем приложение на экране */
+  #root {
+    margin: 30px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: calc(100dvh - 6vh);
+  }
+}
