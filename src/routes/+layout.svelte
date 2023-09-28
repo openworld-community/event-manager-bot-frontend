@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer.svelte";
+    import Header from "$lib/components/Header.svelte";
     import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
     import MenuPopap from "$lib/components/ui/MenuPopap.svelte";
    let showPopup: boolean = isPopupOpenStore.getState()
