@@ -3,6 +3,7 @@
   // onMount будет использован для того чтобы показать версию приложения в футере, пока я жду на нее эндпоинт
   import Button from './button.svelte';
   import Input from './Input.svelte';
+  import MenuArrowUp from './icons/MenuArrowUp.svelte';
   import { togglePopup } from '$lib/logic/showPopup';
   import { updateMenuInput, menuInput } from '$lib/logic/editMenuInput';
   import { InputVariant } from '$lib/types/enums';
@@ -29,6 +30,7 @@
     </div>
     </Button>
     <form>
+      <div class="footer--menu-form">
       <Input 
       variant = {InputVariant.menu}
       placeholder = 'message'
@@ -42,9 +44,9 @@
       variant = {ButtonVariant.none}
       rounded = {ButtonRounded.aLittle}
       >
-      ^
-      |
+        <MenuArrowUp />
       </Button>
+    </div>
     </form>
 </footer>
 
@@ -56,7 +58,6 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     gap: 90px;
     background-color: var(--primary-color);
 
@@ -67,12 +68,20 @@
       justify-content: center;
       gap: 5px;
 
-      height: auto;
+     height: 30px;
 
       p {
         height: 15px;
         font-size: 16px;
       }
+    }
+
+    &--menu-form {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
     }
   }
 
