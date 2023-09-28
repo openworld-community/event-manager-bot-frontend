@@ -12,8 +12,6 @@
        }
      })
   }
-
-  // какой обработчик повесить на клик ума не приложу честно говоря, учитывая что весь outer будет прятаться за попапом
 </script>
 
 <div 
@@ -55,10 +53,12 @@ on:keydown = {() => handleEscClose}
     
     .popup-outer.disabled {
       opacity: 0;
+      z-index: -1;
     }
 
     .popup-outer.active {
       opacity: 1;
+      z-index: 10;
     }
 
     .popup {
