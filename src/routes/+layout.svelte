@@ -3,7 +3,6 @@
     import Footer from "$lib/components/Footer.svelte";
     import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
     import MenuPopap from "$lib/components/ui/MenuPopap.svelte";
-  // без строчек 8 и 9 попап не подымается..
    let showPopup: boolean = isPopupOpenStore.getState()
    isPopupOpenStore.on(togglePopup, (_, payload) => showPopup = payload)
 </script>
