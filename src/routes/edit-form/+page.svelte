@@ -13,7 +13,7 @@
     <div class="form--box">
     {#each formDataStores as inputData}
       <Input label={inputData.label} type={inputData.type} handler={inputData.handler}
-             valueStore={inputData.valueStore} varinat={inputData.variant}/>
+             valueStore={inputData.valueStore} variant={inputData.variant}/>
     {/each}
   </div>
     <button type="submit">Create event</button>
