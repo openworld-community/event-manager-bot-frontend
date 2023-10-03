@@ -16,10 +16,10 @@
   justify-content: center;
   align-items: center;
 
-  --primary-green: #008585;
-  --secondary-green: #5d8500;
-  --primary-color: #efeded;
-  --secondary-color: #efeded;
+  --primary-elements-color: #008585;
+  --secondary-elements-color: #5d8500;
+  --primary-background-color: #efeded;
+  --secondary-background-color: #efeded;
 }
 
 @media only screen and (min-width: 768px) {
