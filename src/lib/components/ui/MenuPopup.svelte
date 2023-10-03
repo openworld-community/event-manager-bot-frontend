@@ -23,7 +23,7 @@ variant = {PopupVariant.primary}
     variant = {ButtonVariant.primary}
     width='320px'
     height='45px'
-    rounded = {ButtonRounded.aLittle}
+    rounded = {ButtonRounded.smallRadius}
     borderRadius='8px'
     on:click = {() => togglePopup(false)}
     >
@@ -40,7 +40,7 @@ variant = {PopupVariant.primary}
    width='320px'
    height='45px'
    borderRadius='8px'
-   rounded = {ButtonRounded.aLittle}
+   rounded = {ButtonRounded.smallRadius}
    on:click = {() => togglePopup(false)}
   >
     <p>view my ivents</p>

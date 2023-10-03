@@ -20,7 +20,7 @@
     height='30px'
     borderRadius='12px'
     variant = {ButtonVariant.primary}
-    rounded = {ButtonRounded.aLittle}
+    rounded = {ButtonRounded.smallRadius}
     on:click = {() => togglePopup(true)}
     >
     <div class="footer--menu-button">
@@ -41,7 +41,7 @@
       width='fit-content'
       borderRadius='5px'
       variant = {ButtonVariant.none}
-      rounded = {ButtonRounded.aLittle}
+      rounded = {ButtonRounded.smallRadius}
       >
         <MenuArrowUp />
       </Button>

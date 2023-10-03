@@ -15,6 +15,6 @@ export enum ButtonVariant {
 }
 
 export enum ButtonRounded {
-  aLittle = 'small-radius',
-  aWhile = 'big-radius'
+  smallRadius = 'small-radius',
+  bigRadius = 'big-radius'
 }
