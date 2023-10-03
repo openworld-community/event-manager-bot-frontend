@@ -2,7 +2,7 @@ import { createEffect, createEvent, createStore, sample } from 'effector';
 import type { Event as EffectorEvent } from 'effector';
 import type { FormEventHandler } from 'svelte/elements';
 import { editFormData } from './editFormData';
-import { EVENT } from '$lib/utils/endpoints';
+import { EVENT_URL } from '$lib/utils/endpoints';
 import { Reservation } from './event';
 import type { FormInputEventType } from '$lib/types/formTypes';
 
@@ -30,7 +30,7 @@ export const submitForm = createEvent<HTMLFormElement>();
 
 const submitFormFx = createEffect(async (data: Record<string, string>) => {
   const event = new Reservation(data);
-  const promise = fetch(EVENT, {
+  const promise = fetch(EVENT_URL, {
     method: 'POST',
     mode: 'cors',
     headers: {
