@@ -31,6 +31,7 @@
     <form>
       <div class="footer--menu-form">
       <Input 
+      label=''
       variant = {InputVariant.menu}
       placeholder = 'message'
       handler = {(e) => updateMenuInput(e.currentTarget.value)}
@@ -58,7 +59,7 @@
     justify-content: center;
     align-items: center;
     gap: 90px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-background-color);
 
     &--menu-button {
       display: flex;

@@ -1,7 +1,7 @@
 <script lang="ts">
     import Footer from "$lib/components/Footer.svelte";
     import Header from "$lib/components/Header.svelte";
-    import { showPopup } from "$lib/logic/showPopup";
+    import { isPopupOpenStore } from "$lib/logic/showPopup";
     import MenuPopap from "$lib/components/ui/MenuPopup.svelte"; 
 </script>
 
@@ -9,7 +9,7 @@
 <div class="main">
     <slot as="main">
     </slot>
-    <MenuPopap isPopupShown={$showPopup}/>
+    <MenuPopap isPopupShown={$isPopupOpenStore}/>
 </div>
 <Footer />
 

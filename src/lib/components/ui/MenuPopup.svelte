@@ -2,11 +2,11 @@
   import Link from "../Link.svelte";
   import Button from "../Button.svelte";
   import Popup from "../Popup.svelte";
-  import { showPopup, togglePopup } from "$lib/logic/showPopup";
+  import { isPopupOpenStore, togglePopup } from "$lib/logic/showPopup";
   import { PopupVariant } from "$lib/types/enums";
   import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
  
-  export let isPopupShown: boolean = $showPopup
+  export let isPopupShown: boolean = $isPopupOpenStore
 </script>
 
 <div class="menu-popup">
