@@ -2,14 +2,14 @@
     import Footer from "$lib/components/Footer.svelte";
     import Header from "$lib/components/Header.svelte";
     import { isPopupOpenStore } from "$lib/logic/showPopup";
-    import MenuPopap from "$lib/components/ui/MenuPopup.svelte"; 
+    import MenuPopup from "$lib/components/ui/MenuPopup.svelte"; 
 </script>
 
 <Header />
 <div class="main">
     <slot as="main">
     </slot>
-    <MenuPopap isPopupShown={$isPopupOpenStore}/>
+    <MenuPopup isPopupShown={$isPopupOpenStore}/>
 </div>
 <Footer />
 
