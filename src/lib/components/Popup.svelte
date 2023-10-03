@@ -20,7 +20,6 @@ class='popup-outer'
 class:active={isPopupShown}
 class:disabled={!isPopupShown}
 on:close = {() => togglePopup(false)}
-on:click 
 on:keydown = {() => handleEscClose}
 >
   <div class={`popup ${variant}`}
