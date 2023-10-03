@@ -2,7 +2,8 @@
   import { togglePopup } from "$lib/logic/showPopup";
   import type { PopupVariant } from "$lib/types/enums";
 
-  export let showPopup = false;
+
+  export let isPopupShown = false;
   export let variant: PopupVariant
 
   const handleEscClose = () => {
@@ -16,8 +17,8 @@
 
 <div 
 class='popup-outer'
-class:active={showPopup}
-class:disabled={!showPopup}
+class:active={isPopupShown}
+class:disabled={!isPopupShown}
 on:close = {() => togglePopup(false)}
 on:click 
 on:keydown = {() => handleEscClose}
