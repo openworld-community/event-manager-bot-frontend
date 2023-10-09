@@ -7,7 +7,7 @@ type InputData = {
   initValue: string;
   type: HTMLInputTypeAttribute;
   variant: InputVariant;
-  step?: FormSteps
+  step?: FormSteps;
 };
 
 export const editFormData: InputData[] = [

@@ -2,7 +2,7 @@
   import {voidFunction} from "$lib/utils/voidFunction.js";
   import type {FormEventHandler, HTMLInputTypeAttribute} from "svelte/elements";
   import type {Store} from "effector";
-  import { FormSteps, type InputVariant } from "$lib/types/enums";
+  import type { FormSteps, InputVariant } from "$lib/types/enums";
 
   type InputLabel = boolean | string;
 
@@ -12,7 +12,7 @@
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
   export let valueStore: Store<string> | undefined = undefined;
   export let placeholder = ''
-  export let step: any = FormSteps
+  export let step: FormSteps
 </script>
 
 <label class="input--box">

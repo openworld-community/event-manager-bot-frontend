@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { submitForm, createFormEventHandler } from '$lib/logic/editForm';
   import TelegramScript from '$lib/components/TelegramScript.svelte';
   import MultistepsForm from '$lib/components/ui/MultistepsForm.svelte';
   import Button from '$lib/components/Button.svelte';
