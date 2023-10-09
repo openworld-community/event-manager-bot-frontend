@@ -1,33 +1,73 @@
 <script lang="ts">
-  import { submitForm, createFormEventHandler, formDataStores } from "$lib/logic/editForm";
-  import Input from "$lib/components/Input.svelte";
-  import TelegramScript from "$lib/components/TelegramScript.svelte";
-
+  import { submitForm, createFormEventHandler } from '$lib/logic/editForm';
+  import TelegramScript from '$lib/components/TelegramScript.svelte';
+  import MultistepsForm from '$lib/components/ui/MultistepsForm.svelte';
+  import Button from '$lib/components/Button.svelte';
+  import { ButtonRounded, ButtonVariant } from '$lib/types/enums';
+  import { stepUp, stepDown, formStepStore } from '$lib/logic/editFormSteps';
+  console.log($formStepStore);
 </script>
 
 <TelegramScript />
 
-<main>
-  <form class="form" on:submit={createFormEventHandler(submitForm)}>
-    <h1>Create new event</h1>
-    <div class="form--box">
-    {#each formDataStores as inputData}
-      <Input label={inputData.label} type={inputData.type} handler={inputData.handler}
-             valueStore={inputData.valueStore} variant={inputData.variant}/>
-    {/each}
+<div class="wrapper">   
+  <h1 class="form--sign">
+    Create new event
+  </h1>
+  <div class="form">
+    <MultistepsForm activeStep={$formStepStore} />
   </div>
-    <button type="submit">Create event</button>
-  </form>
-</main>
+  <div class="form--buttons">
+    <Button
+      height="35px"
+      width="250px"
+      borderRadius=".5rem"
+      rounded={ButtonRounded.smallRadius}
+      variant={ButtonVariant.primary}
+      on:click={() => stepUp()}
+    >
+      туда
+    </Button>
+    <Button
+      height="35px"
+      width="250px"
+      borderRadius=".5rem"
+      rounded={ButtonRounded.smallRadius}
+      variant={ButtonVariant.secondary}
+      on:click={() => stepDown()}
+    >
+      сюда
+    </Button>
+  </div>
+</div>
 
 <style lang="scss">
-  .form {
+  .wrapper {
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    // margin-left: 12%;
+    position: relative;
+  }
 
-    &--box {
-      margin-left: 40px;
+  .form {
+    margin-bottom: 50%;
+    height: 150px;
+
+    &--buttons {
+      position: absolute;
+      bottom: 10%;
+
+      width: fit-content;
+      left: 12%;
+    }
+
+    &--sign {
+      position: absolute;
+      top: 2.5%;
+      left: 12%;
     }
   }
 </style>

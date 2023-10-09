@@ -18,3 +18,9 @@ export enum ButtonRounded {
   smallRadius = 'small-radius',
   bigRadius = 'big-radius'
 }
+
+export enum FormSteps {
+  ABOUT = 'ABOUT',
+  CAPACITY = 'CAPACITY',
+  PRICE = 'PRICE'
+}

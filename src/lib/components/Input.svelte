@@ -2,14 +2,17 @@
   import {voidFunction} from "$lib/utils/voidFunction.js";
   import type {FormEventHandler, HTMLInputTypeAttribute} from "svelte/elements";
   import type {Store} from "effector";
-  import type { InputVariant } from "$lib/types/enums";
+  import { FormSteps, type InputVariant } from "$lib/types/enums";
 
-  export let label = '';
+  type InputLabel = boolean | string;
+
+  export let label: InputLabel = '';
   export let type: HTMLInputTypeAttribute = 'text';
   export let variant: InputVariant;
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
   export let valueStore: Store<string> | undefined = undefined;
   export let placeholder = ''
+  export let step: any = FormSteps
 </script>
 
 <label class="input--box">
@@ -19,8 +22,8 @@
     on:input={handler}
     value={placeholder ? '' : $valueStore}
     class={`input input--${variant}`}
-    placeholder={placeholder}
-    autocomplete={label}
+    autocomplete={$valueStore}
+    step={step}
   />
 </label>
 
@@ -60,8 +63,8 @@
       background-color: #fff;
       border: 1px solid #EFEDED;
       &:active, &:focus {
-        outline: 3px var(--primary-green);
-        border: 1px solid var(--secondary-green);
+        outline: 3px var(--primary-elements-color);
+        border: 1px solid var(--secondary-elements-color);
       }
     }
 
