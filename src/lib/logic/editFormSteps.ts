@@ -27,30 +27,3 @@ formStepStore.on(stepDown, (state) => {
           return FormSteps.CAPACITY
       }
 })
-
-// sample({
-//     source: formStepStore,
-//     clock: [stepDown, stepUp],
-//     fn: (state, [stepDown, stepUp]) => {
-//       if (stepDown) {
-//         switch (state) {
-//           case FormSteps.about:
-//             return FormSteps.about
-//           case FormSteps.capacity:
-//             return FormSteps.about
-//           case FormSteps.PRICE:
-//             return FormSteps.capacity
-//         }
-//       } else if (stepUp) {
-//         switch (state) {
-//           case FormSteps.about:
-//             return FormSteps.capacity
-//           case FormSteps.capacity:
-//             return FormSteps.PRICE
-//           case FormSteps.PRICE:
-//             return FormSteps.PRICE
-//         }
-//       }
-//       return state
-//     }
-// })
