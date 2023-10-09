@@ -18,7 +18,12 @@
   class:disabled
   class:rounded
   class:width
-  style={`--width:${width}; --height:${height}; --border-radius:${borderRadius}`}
+  style={`
+   --width:${width};
+   --height:${height};
+   --border-radius:${borderRadius}
+ `}
+ on:click
 >
   <slot />
 </button>

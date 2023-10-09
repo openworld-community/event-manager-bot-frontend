@@ -6,7 +6,7 @@
   import { PopupVariant } from "$lib/types/enums";
   import { ButtonVariant, ButtonRounded } from "$lib/types/enums";
  
-  export let isPopupShown: boolean = $isPopupOpenStore
+  export let isPopupShown: boolean = $isPopupOpenStore;
 </script>
 
 <div class="menu-popup">
