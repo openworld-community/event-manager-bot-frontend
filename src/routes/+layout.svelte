@@ -6,11 +6,11 @@
 </script>
 
 <Header />
-<div class="main">
+<main class="main">
     <slot as="main">
     </slot>
     <MenuPopup isPopupShown={$isPopupOpenStore}/>
-</div>
+</main>
 <Footer />
 
 <style>
