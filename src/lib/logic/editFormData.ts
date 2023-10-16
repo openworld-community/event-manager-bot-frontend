@@ -16,7 +16,7 @@ export const editFormData: InputData[] = [
     systemName: 'name',
     initValue: '',
     type: 'text',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventBig,
     step: FormSteps.ABOUT
   },
 
@@ -25,7 +25,7 @@ export const editFormData: InputData[] = [
     systemName: 'link',
     initValue: '',
     type: 'text',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventBig,
     step: FormSteps.ABOUT
   },
   {
@@ -33,7 +33,7 @@ export const editFormData: InputData[] = [
     systemName: 'start',
     initValue: '',
     type: 'date',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.ABOUT
   },
   {
@@ -41,39 +41,39 @@ export const editFormData: InputData[] = [
     systemName: 'remind',
     initValue: '',
     type: 'date',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.ABOUT
   },
   {
-    label: 'Max adults amount',
+    label: 'Adults',
     systemName: 'max_adults',
     initValue: '100',
     type: 'number',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.CAPACITY
   },
   {
-    label: 'Max children amount',
+    label: 'Children',
     systemName: 'max_children',
     initValue: '100',
     type: 'number',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.CAPACITY
   },
   {
-    label: 'Max adults per reservation',
+    label: 'Adults',
     systemName: 'max_adults_per_reservation',
     initValue: '4',
     type: 'number',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.CAPACITY
   },
   {
-    label: 'Max children per reservation',
+    label: 'Children',
     systemName: 'max_children_per_reservation',
     initValue: '4',
     type: 'number',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.CAPACITY
   },
   {
@@ -81,7 +81,7 @@ export const editFormData: InputData[] = [
     systemName: 'adult_ticket_price',
     initValue: '100',
     type: 'number',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.PRICE
   },
   {
@@ -89,7 +89,7 @@ export const editFormData: InputData[] = [
     systemName: 'children_ticket_price',
     initValue: '50',
     type: 'number',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventSmall,
     step: FormSteps.PRICE
   },
   {
@@ -97,7 +97,7 @@ export const editFormData: InputData[] = [
     systemName: 'currency',
     initValue: 'USD',
     type: 'text',
-    variant: InputVariant.formEvent,
+    variant: InputVariant.formEventBig,
     step: FormSteps.PRICE
   }
 ];

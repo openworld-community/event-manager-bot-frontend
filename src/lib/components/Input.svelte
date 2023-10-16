@@ -12,7 +12,7 @@
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
   export let valueStore: Store<string> | undefined = undefined;
   export let placeholder = ''
-  export let step: FormSteps
+  export let step: FormSteps | undefined
 </script>
 
 <label class="input--box">
@@ -58,7 +58,7 @@
     }
     }
 
-    &--form-event {
+    &--form-event-big, &--form-event-small {
       border-radius: 4px;
       background-color: #fff;
       border: 1px solid #EFEDED;
@@ -66,6 +66,14 @@
         outline: 3px var(--primary-elements-color);
         border: 1px solid var(--secondary-elements-color);
       }
+    }
+
+    &--form-event-big {
+      width: 320px;
+    }
+
+    &--form-event-small {
+      width: 130px;
     }
 
     &:active, &:focus {

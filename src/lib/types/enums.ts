@@ -1,6 +1,7 @@
 export enum InputVariant {
   menu = 'menu',
-  formEvent = 'form-event'
+  formEventBig = 'form-event-big',
+  formEventSmall = 'form-event-small'
 }
 
 export enum PopupVariant {

@@ -36,6 +36,7 @@
       placeholder = 'message'
       handler = {(e) => updateMenuInput(e.currentTarget.value)}
       valueStore = {menuInput}
+      step={undefined}
       />
       <Button
       height='45px'
