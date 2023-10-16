@@ -5,6 +5,7 @@
   import type { InputVariant } from "$lib/types/enums";
 
   export let label = '';
+  export let labelShown: boolean = true;
   export let type: HTMLInputTypeAttribute = 'text';
   export let variant: InputVariant;
   export let handler: FormEventHandler<HTMLInputElement> = voidFunction;
@@ -13,7 +14,9 @@
 </script>
 
 <label class="input--box">
+  {#if labelShown}
   <span>{label}</span>
+  {/if}
   <input
     type={type}
     on:input={handler}

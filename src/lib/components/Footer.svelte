@@ -31,7 +31,8 @@
     <form>
       <div class="footer--menu-form">
       <Input 
-      label=''
+      label='message'
+      labelShown={false}
       variant = {InputVariant.menu}
       placeholder = 'message'
       handler = {(e) => updateMenuInput(e.currentTarget.value)}
