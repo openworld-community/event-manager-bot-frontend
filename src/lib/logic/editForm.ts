@@ -2,9 +2,11 @@ import { createEffect, createEvent, createStore, sample } from 'effector';
 import type { Event as EffectorEvent } from 'effector';
 import type { FormEventHandler } from 'svelte/elements';
 import { editFormData } from './editFormData';
+import { EVENT_URL } from '$lib/utils/endpoints';
+import { Reservation } from './event';
+import type { FormInputEventType } from '$lib/types/formTypes';
 
-type FormInputEventType = string;
-type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
+export type FormSubmitEventType = FormEventHandler<HTMLFormElement>;
 
 const handleInputChange = (_: unknown, value: FormInputEventType) => value;
 
@@ -27,7 +29,17 @@ export const formDataStores = editFormData.map((item) => {
 export const submitForm = createEvent<HTMLFormElement>();
 
 const submitFormFx = createEffect(async (data: Record<string, string>) => {
-  Telegram.WebApp.sendData(JSON.stringify(data));
+  const event = new Reservation(data);
+  const promise = fetch(EVENT_URL, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'сontent-type': 'application/json'
+    },
+    body: JSON.stringify(event.toObject())
+  });
+  promise.then((res) => console.log(res));
+  return await promise;
 });
 const formMapper = (storesData: string[]) => {
   const data: Record<string, string> = {};
