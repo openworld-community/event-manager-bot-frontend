@@ -31,15 +31,15 @@ formStepStore.on(stepDown, (state) => {
 export const formStepSignStore = formStepStore.map((state) => {
   switch (state) {
     case FormSteps.ABOUT:
-      return FORM_STEPS_TYTLES.ABOUT 
+      return FORM_STEPS_TYTLES.ABOUT;
     case FormSteps.CAPACITY:
-      return [ FORM_STEPS_TYTLES.CAPACITY.AMOUNT, FORM_STEPS_TYTLES.CAPACITY.PER_RESERV ]
+      return [FORM_STEPS_TYTLES.CAPACITY.AMOUNT, FORM_STEPS_TYTLES.CAPACITY.PER_RESERV];
     case FormSteps.PRICE:
-      return FORM_STEPS_TYTLES.PRICE
+      return FORM_STEPS_TYTLES.PRICE;
   }
-})
+});
 
 sample({
   source: formStepSignStore,
-  fn: ((value) => value)
-})
+  fn: (value) => value
+});
