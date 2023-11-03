@@ -25,6 +25,6 @@
 
 <style lang="scss">
   .multisteps-form {
-    width: 220px;
+    display: block;
   }
 </style>

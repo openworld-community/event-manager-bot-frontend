@@ -42,6 +42,8 @@
       display: flex;
       flex-flow: column nowrap;
       align-items: flex-start;
+
+      width: fit-content;
     }
 
     &--menu {
